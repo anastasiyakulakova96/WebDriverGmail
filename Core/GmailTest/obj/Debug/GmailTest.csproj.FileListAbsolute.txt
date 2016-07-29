@@ -1,0 +1,15 @@
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\bin\Debug\GmailTest.dll
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\bin\Debug\GmailTest.pdb
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\bin\Debug\Core.dll
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\bin\Debug\nunit.framework.dll
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\bin\Debug\WebDriver.dll
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\bin\Debug\WebDriver.Support.dll
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\bin\Debug\Core.pdb
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\bin\Debug\nunit.framework.xml
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\bin\Debug\WebDriver.xml
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\bin\Debug\WebDriver.Support.xml
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\obj\Debug\GmailTest.csprojResolveAssemblyReference.cache
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\obj\Debug\GmailTest.dll
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\obj\Debug\GmailTest.pdb
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\obj\Debug\Interop.AutoItX3Lib.dll
+C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\obj\Debug\GmailTest.csproj.ResolveComReference.cache

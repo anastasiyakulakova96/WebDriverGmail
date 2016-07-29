@@ -1,0 +1,13 @@
+c:\users\anastasiya_kulakova\documents\visual studio 2015\Projects\Core\Core\bin\Debug\Core.dll
+c:\users\anastasiya_kulakova\documents\visual studio 2015\Projects\Core\Core\bin\Debug\Core.pdb
+c:\users\anastasiya_kulakova\documents\visual studio 2015\Projects\Core\Core\obj\Debug\Core.Data.resources
+c:\users\anastasiya_kulakova\documents\visual studio 2015\Projects\Core\Core\obj\Debug\Core.csproj.GenerateResource.Cache
+c:\users\anastasiya_kulakova\documents\visual studio 2015\Projects\Core\Core\obj\Debug\Core.dll
+c:\users\anastasiya_kulakova\documents\visual studio 2015\Projects\Core\Core\obj\Debug\Core.pdb
+C:\Users\Anastasiya_Kulakova\Documents\visual studio 2015\Projects\Core\Core\bin\Debug\WebDriver.dll
+C:\Users\Anastasiya_Kulakova\Documents\visual studio 2015\Projects\Core\Core\bin\Debug\WebDriver.Support.dll
+C:\Users\Anastasiya_Kulakova\Documents\visual studio 2015\Projects\Core\Core\bin\Debug\WebDriver.xml
+C:\Users\Anastasiya_Kulakova\Documents\visual studio 2015\Projects\Core\Core\bin\Debug\WebDriver.Support.xml
+C:\Users\Anastasiya_Kulakova\Documents\visual studio 2015\Projects\Core\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+C:\Users\Anastasiya_Kulakova\Documents\visual studio 2015\Projects\Core\Core\bin\Debug\nunit.framework.dll
+C:\Users\Anastasiya_Kulakova\Documents\visual studio 2015\Projects\Core\Core\bin\Debug\nunit.framework.xml
