@@ -4,6 +4,7 @@ using System;
 using OpenQA.Selenium.Support.UI;
 using WebDriverLibrary.Pages;
 using Core.Page;
+using WebDriverLibrary.Steps;
 
 namespace WebDriver.Steps
 {
@@ -34,7 +35,7 @@ namespace WebDriver.Steps
 
             loginPage.tInputEmailField.SetText(userEmail);
             loginPage.bNext.Click();
-            loginPage.tinputPasswordField.SetText(password);
+                       loginPage.tinputPasswordField.SetText(password);
             loginPage.bEnter.Click();
         }
 

@@ -15,6 +15,7 @@ namespace WebDriverLibrary.Pages
     {
         private IWebDriver driver;
 
+      
         public SettingsPage(IWebDriver driver)
         {
             this.driver = driver;
@@ -33,10 +34,15 @@ namespace WebDriverLibrary.Pages
             cbDelete = new CheckBox(By.XPath("(//div[@class='nH lZ']/input[@type='checkbox'])[5]"), driver);
             cbMarkAsImportantCheckBox = new CheckBox(By.XPath("(//div[@class='nH lZ']/input[@type='checkbox'])[7]"), driver);
             bCreateFilter = new Button((By.XPath("//div[contains(text(),'Создать фильтр')]")), driver);
-
-            //class="f0 ou"
-            //baa=new Button(By.ClassName("f0 ou"), driver);
-
+            bSaveChanges = new Button(By.XPath("//button[@guidedhelpid='save_changes_button']"), driver);
+            lInstallTheme = new Link(By.XPath("//a[@class='e NvzLyc']"), driver);
+            bMyPictures = new Button(By.XPath("//div[@class='J-J5-Ji T-I T-I-ax7 a94']"), driver);
+            bFrameChangeThemeLocator = new Button((By.XPath("//div[contains(text(),'Загрузка фото')]")), driver);
+            bChooseFileFromComputer = new Button((By.XPath("//div[contains(text(),'Выберите файл на компьютере')]")), driver);
+            bChooseThemeBeach = new Button(By.XPath("//div[contains(text(),'Lake Tahoe')]"), driver);
+            rbSelectSignature = new RadioButton(By.XPath("//*[@name='sx_sg'][@value='1']"), driver);
+            tbxSignature = new TextBox(By.XPath("//div[@aria-label='Подпись']"), driver);
+           // btSaveChanges = new Button(By.XPath("//button[@guidedhelpid='save_changes_button']"), driver);
         }
 
         private string urlForSettings = "https://mail.google.com/mail/#settings/";
@@ -55,7 +61,16 @@ namespace WebDriverLibrary.Pages
         public CheckBox cbDelete { get; set; }
         public CheckBox cbMarkAsImportantCheckBox { get; set; }
         public Button bCreateFilter { get; set; }
-        //  public Button baa { get; set; }
+        public Button bSaveChanges { get; set; }
+        public Link lInstallTheme { get; set; }
+        public Button bMyPictures { get; set; }
+        public Button bFrameChangeThemeLocator { get; set; }
+        public Button bChooseFileFromComputer { get; set; }
+        public TextBox tErrorFile { get; set; }
+        public Button bChooseThemeBeach { get; set; }
+        public RadioButton rbSelectSignature { get; set; }
+        public TextBox tbxSignature { get; set; }
+      //  public Button btSaveChanges { get; set; }
 
     }
 }

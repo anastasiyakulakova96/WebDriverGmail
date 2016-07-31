@@ -34,8 +34,8 @@ namespace GmailTest.Steps
         public bool FindEmailInTrash(String topicLine)
         {
             IWebElement topic = driver.FindElement(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/.."));
-           // if (ExpectedConditions.ElementIsVisible(topic) != null) 
-           if(topic!=null)
+            IWebElement impotant = driver.FindElement(By.XPath("//div[@aria-label='Отмечено как важное потому, что подходит под условия одного из ваших фильтров важности.']"));
+                   if (topic!=null)
             {
                 return true;
             }

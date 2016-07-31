@@ -38,6 +38,19 @@ namespace WebDriverLibrary.Pages
         public Button bSettingsFromDropDownMenu { get; set; }
         public Button bAttachFile { get; set; }
         public Link lForward { get; set; }
+        public TextBox tSerchBar { get; set; }
+        public Button bSearch { get; set; }
+        public Button bAlertFileIsTooBig { get; set; }
+        public Button bEmojiButton { get; set; }
+        public Button bEmoji1 { get; set; }
+        public Button bEmoji2 { get; set; }
+        public Button bSecondEmoji { get; set; }
+        public Button bNotASpam { get; set; }
+        public Button bInBox { get; set; }
+        public TextBox tbSignature { get; set; }
+
+
+        // public TextBox tTopicEmoji { get; set; }
 
         public MainPage(IWebDriver driver)
         {
@@ -57,15 +70,27 @@ namespace WebDriverLibrary.Pages
             bSecondUser = new Button(By.XPath("//*[@id='choose-account-1']"), driver);
             confirmButtonInNewTab= new Button(By.XPath("//input[@type='submit']"), driver);
             bAttachFile= new Button(By.XPath("//div[@class='a1 aaA aMZ']"), driver);
+            tSerchBar = new TextBox(By.XPath("//input[@id='gbqfq']"), driver);
+            bSearch = new Button(By.XPath("//button[@id='gbqfb']"), driver);
+            bAlertFileIsTooBig = new Button(By.XPath("//div[@role='alertdialog']"), driver);
 
             tRecipient = new TextBox(By.XPath("//textarea[@class='vO']"), driver);
             tTopic = new TextBox(By.XPath("//input[@class='aoT']"), driver);
             tLetter = new TextBox(By.XPath("//div[@class='Am Al editable LW-avf']"), driver);
-            cFirstCheckBox = new CheckBox(By.XPath("//*[@id=':2j']/div"), driver);
+           // cFirstCheckBox = new CheckBox(By.XPath("//*[@id=':2j']/div"), driver);
+         cFirstCheckBox = new CheckBox(By.XPath("//div[@dir='ltr']"), driver);
             bFirstMessage = new Button(By.XPath("//span[@email='forwarding-noreply@google.com']"), driver);
 
             lForward = new Link(By.XPath("(//a[@target='_blank' and @rel='noreferrer'])[1]"), driver);
+            bEmojiButton = new Button(By.XPath("//div[@class='QT aaA aMZ']"), driver);
+            bEmoji1 = new Button(By.XPath("//button[@string='1f600']"), driver);
+            bEmoji2 = new Button(By.XPath("//button[@string='1f601']"), driver);
+            bSecondEmoji = new Button(By.XPath("//button[@title='Эмоции']"), driver);
+             bNotASpam = new Button((By.XPath("//div[contains(text(),'Не спам')]")), driver);
+            bInBox = new Button((By.XPath("//a[contains(text(),'Входящие')]")), driver);
+        tbSignature = new TextBox(By.XPath("//div[@class='gmail_signature']/div"), driver);
 
         }
+        
     }
 }

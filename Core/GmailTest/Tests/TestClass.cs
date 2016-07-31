@@ -24,7 +24,12 @@ namespace WebDriver.Tests
         private const string USEREMAIL3 = "nastyakylakova96@gmail.com";
         private const string USERPASSWORD3 = "meniti82";
         private const string SETTINGPAGE = "fwdandpop";
-
+        private const string TOPIC_LETTER_WITH_ATTACH = "letter with attech";
+        private const string TOPIC_LETTER_WITHOUT_ATTACH = "hi";
+        private const string PATH_TO_SMALL_FILE = @"G:\свадьба.xlsx";
+        private const string PATH_TO_BIG_FILE = @"G:\1.rar";
+        private const string PATH_TO_SMALL_FILE2 = @"G:\DSC_8250.jpg";
+        private const string SIGNATURE = "nastya";
 
         [SetUp]
         public void Init()
@@ -45,7 +50,7 @@ namespace WebDriver.Tests
 
 
         [Test]
-        [Ignore("ignore")]
+        [Ignore("ignore")] //1
         public void SpamGmail()
         {
             stepForLogin.OpenStartPage();
@@ -69,7 +74,7 @@ namespace WebDriver.Tests
         }
 
         [Test]
-        // [Ignore("ignore")]
+        [Ignore("ignore")] //2
         public void ForwardGmail()
         {
             stepForLogin.OpenStartPage();
@@ -86,22 +91,110 @@ namespace WebDriver.Tests
             stepForLogin.LoginGmail(USERPASSWORD2);
             stepForMainPage.OpenSettings();
             stepForSettingsPage.ForwardACopyOfIncomingMailTo();
+            Waiter.Wait();
             stepForSettingsPage.CreateNewFilter();
             stepForSettingsPage.FillInNewFilterFrom(USEREMAIL);
             Waiter.Wait();
             stepForMainPage.LogOut222();
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
-            stepForMainPage.WriteALetterWithAttach(USEREMAIL2);
+            stepForMainPage.WriteALetterWithAttach(USEREMAIL2, PATH_TO_SMALL_FILE);
             Waiter.Wait();
             stepForMainPage.WriteALetter(USEREMAIL2);
             Waiter.Wait();
             stepForMainPage.LogOut2();
+            Waiter.Wait();
             stepForLogin.LoginGmail(USERPASSWORD2);
+            Waiter.Wait();
+            Assert.IsTrue(stepForMainPage.FindEmailInInbox(TOPIC_LETTER_WITHOUT_ATTACH));
             stepForTrashPage.OpenTrash();
-            //Assert.assertTrue(trash.findEmailInTrash(topic));
-            Assert.IsTrue(stepForTrashPage.FindEmailInTrash("hi"));
-          
+            Waiter.Wait();
+            Assert.IsTrue(stepForTrashPage.FindEmailInTrash(TOPIC_LETTER_WITH_ATTACH));
+            Waiter.Wait();
+            stepForMainPage.LogOut2();
+            stepForLogin.LoginGmail2(USERPASSWORD3);
+            Assert.IsTrue(stepForMainPage.FindEmailInInbox(TOPIC_LETTER_WITHOUT_ATTACH));
 
+        }
+
+        [Test]
+        [Ignore("ignore")] //3
+        public void BigFileGmail()
+        {
+            stepForLogin.OpenStartPage();
+            stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
+            stepForMainPage.WriteALetterWithAttach2(USEREMAIL, PATH_TO_BIG_FILE);
+            Waiter.Wait();
+            Assert.IsTrue(stepForMainPage.CheckPresenceOfAlertForFileTooBig());
+        }
+
+        [Test]
+        [Ignore("ignore")] //4
+        public void ThemesGmail()
+        {
+            stepForLogin.OpenStartPage();
+            stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
+            stepForMainPage.OpenThemes();
+            stepForSettingsPage.ChangeThemeCustomImage(PATH_TO_SMALL_FILE);
+            Assert.IsTrue(stepForSettingsPage.CheckThemes());
+        }
+
+
+        [Test]
+        [Ignore("ignore")] //5
+        public void SendEmailWithEmoji()
+        {
+            stepForLogin.OpenStartPage();
+            stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
+            stepForMainPage.WriteLetterWithEmoticonIcon(USEREMAIL);
+            Waiter.Wait();
+            stepForMainPage.LogOut();
+            stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
+            Waiter.Wait();
+            Assert.IsTrue(stepForMainPage.CheckEmojiInEmailBody());
+        }
+
+
+        [Test]
+        [Ignore("ignore")] //6
+        public void ChangeUserTheme()
+        {
+            stepForLogin.OpenStartPage();
+            stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
+            stepForMainPage.OpenThemes();
+            Waiter.Wait();
+            stepForSettingsPage.ChooseThemes();
+            //выбрать любую тему
+        }
+
+        [Test]
+         [Ignore("ignore")] //11
+        public void MarkItemAsNotASpam()
+        {
+            stepForLogin.OpenStartPage();
+            stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
+            stepForMainPage.MarkTheLetter();
+            stepForSpamPage.GoToSpam(SPAMFOLDER);
+            Waiter.Wait();
+            stepForMainPage.MarkLetterNotSpam();
+            Waiter.Wait();
+            stepForMainPage.OpenInBox();
+            Waiter.Wait();
+            Assert.IsTrue(stepForMainPage.CheckLetterInBox());
+        }
+
+        [Test]
+        // [Ignore("ignore")] //12
+        public void CheckingSignature()
+        {
+            stepForLogin.OpenStartPage();
+            stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
+          //  stepForMainPage.OpenGeneralSettings();
+          //  stepForSettingsPage.EnterSignature(SIGNATURE);
+         //   Waiter.Wait();
+            stepForMainPage.WriteALetter();
+            Waiter.Wait();
+          //  stepForMainPage.CheckSignature(SIGNATURE);
+           Assert.IsTrue(stepForMainPage.CheckSignature(SIGNATURE));
         }
     }
 }

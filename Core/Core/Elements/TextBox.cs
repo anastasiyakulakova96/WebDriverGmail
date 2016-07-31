@@ -27,6 +27,16 @@ namespace Core.Elements
             return false;
         }
 
+        public string GetText()
+        {
+            IWebElement element = null;
+            if (TryFindElement(out element))
+            {
+                
+                return element.Text;
+            }
+            return null;
+        }
        
     }
 }
