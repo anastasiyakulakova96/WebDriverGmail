@@ -52,15 +52,28 @@ namespace WebDriverLibrary.Steps
             settingPage.rbForwardACopyOfIncomingMail.Click();
             settingPage.bSaveChanges.Click();
         }
-    
+
 
         public void CreateNewFilter()
         {
             SettingsPage settingPage = new SettingsPage(driver);
-           driver.Navigate().GoToUrl(settingPage.URL + FILTERPAGE);
-                 settingPage.bCreateNewFilter.Click();
-                      
+            settingPage.bCreateNewFilter.Click();
         }
+
+        public void DeleteFilter()
+        {
+            SettingsPage settingPage = new SettingsPage(driver);
+            settingPage.cbDeleteFilter.Click();
+            settingPage.bDeleteFilter.Click();
+            settingPage.bOk.Click();
+        }
+
+        public void OpenFilterPage()
+        {
+            SettingsPage settingPage = new SettingsPage(driver);
+            driver.Navigate().GoToUrl(settingPage.URL + FILTERPAGE);
+        }
+
 
         public void FillInNewFilterFrom(string userName)
         {
@@ -120,10 +133,26 @@ namespace WebDriverLibrary.Steps
             SettingsPage settingPage = new SettingsPage(driver);
             settingPage.rbSelectSignature.Click();
             Waiter.Wait();
+            settingPage.tbxSignature.ClearText();
             settingPage.tbxSignature.SetText(signature);
             Waiter.Wait();
             settingPage.bSaveChanges.Click();
         }
 
+        public void DeleteSignature()
+        {
+            SettingsPage settingPage = new SettingsPage(driver);
+            settingPage.tbxSignature.ClearText();
+            settingPage.rbNotSignature.Click();
+            settingPage.bSaveChanges.Click();
+        }
+
+        public void DeleteEmail()
+        {
+            SettingsPage settingPage = new SettingsPage(driver);
+            settingPage.bDeleteEmail.Click();
+            Waiter.Wait();
+            settingPage.bOk.Click();
+        }
     }
 }

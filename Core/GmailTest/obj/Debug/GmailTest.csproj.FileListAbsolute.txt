@@ -28,3 +28,7 @@ C:\WebDriverGmail\Core\GmailTest\bin\Debug\nunit.framework.xml
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\WebDriver.xml
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\WebDriver.Support.xml
 C:\WebDriverGmail\Core\GmailTest\obj\Debug\Interop.AutoItX3Lib.dll
+C:\WebDriverGmail\Core\GmailTest\bin\Debug\Newtonsoft.Json.dll
+C:\WebDriverGmail\Core\GmailTest\bin\Debug\Newtonsoft.Json.xml
+C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.Data.resources
+C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.csproj.GenerateResource.Cache

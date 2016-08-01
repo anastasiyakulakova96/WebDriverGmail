@@ -37,6 +37,21 @@ namespace Core.Elements
             }
             return null;
         }
-       
+
+        public void ClearText()
+        {
+            IWebElement element = null;
+            if (TryFindElement(out element))
+            {
+
+                element.Clear();
+            }
+            else
+            {
+                throw new Exception();
+
+            }
+
+        }
     }
 }

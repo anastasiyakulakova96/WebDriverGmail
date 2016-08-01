@@ -9,6 +9,7 @@ using OpenQA.Selenium;
 using AutoItX3Lib;
 using System.Threading;
 using OpenQA.Selenium.Support.UI;
+using GmailTest;
 
 namespace WebDriverLibrary.Steps
 {
@@ -35,7 +36,9 @@ namespace WebDriverLibrary.Steps
             mainPage.bWriteEMail.Click();
             mainPage.tRecipient.SetText(addressee);
             mainPage.tTopic.SetText("hi");
-            mainPage.tLetter.SetText("hello");
+            string text = Services.Method();
+            // mainPage.tLetter.SetText("hello");
+            mainPage.tLetter.SetText(text);
             mainPage.bSend.Click();
         }
 
@@ -45,6 +48,11 @@ namespace WebDriverLibrary.Steps
             mainPage.bWriteEMail.Click();
         }
 
+        public void CloseWindowWithMessage()
+        {
+            MainPage mainPage = new MainPage(driver);
+            mainPage.bCloseWindowMessage.Click();
+        }
         public void WriteLetterWithEmoticonIcon(string addressee)
         {
             MainPage mainPage = new MainPage(driver);
@@ -132,14 +140,6 @@ namespace WebDriverLibrary.Steps
             mainPage.bMark.Click();
         }
 
-        public void MarkLetterNotSpam()
-        {
-            MainPage mainPage = new MainPage(driver);
-            IWebElement element = driver.FindElement(By.XPath("//div[@dir='ltr']"));
-            mainPage.cFirstCheckBox.Click();
-            mainPage.bNotASpam.Click();
-        }
-
         public bool CheckLetterInBox()
         {
             IWebElement notSpamLetter = driver.FindElement(By.XPath("//b[contains(text(),'not a spam')]"));
@@ -162,8 +162,7 @@ namespace WebDriverLibrary.Steps
         public void OpenSettings()
         {
             MainPage mainPage = new MainPage(driver);
-           // mainPage.bSettings.Click();
-            driver.Navigate().GoToUrl(mainPage.URL + SETTINGPAGE);
+                     driver.Navigate().GoToUrl(mainPage.URL + SETTINGPAGE);
         }
         public void OpenGeneralSettings()
         {
@@ -246,5 +245,50 @@ namespace WebDriverLibrary.Steps
                 return false;
             }
         }
+
+        public void StarredTopMessage()
+        {
+            MainPage mainPage = new MainPage(driver);
+            mainPage.bStarMessage.Click();
+        }
+
+        public void OpenStarPage()
+        {
+            MainPage mainPage = new MainPage(driver);
+            mainPage.lStarTitle.Click();
+        }
+
+        public void RemoveStarMessage()
+        {
+            MainPage mainPage = new MainPage(driver);
+            mainPage.bNotStar.Click();
+        }
+        public bool CheckStarMessage()
+        {
+            IWebElement message = driver.FindElement(By.XPath("//span[contains(text(),'Станислав Лежнюк')]"));
+            if (message != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        //public void IsStarSelect()
+        //{
+        //    MainPage mainPage = new MainPage(driver);
+        //   // mainPage.bStar.
+        //        mainPage.bStar.Ielement.GetAttribute("aria-label");
+        //}
+
+        //public void DeleteMessage(string topicLine)
+        //{
+        //    // IWebElement topic = driver.FindElement(By.XPath("div[contains(text(),'hi')]"));
+        //    //   topic.Click();
+        //    MainPage mainPage = new MainPage(driver);
+        //    mainPage.bMark.Click();
+
+        //}
     }
 }

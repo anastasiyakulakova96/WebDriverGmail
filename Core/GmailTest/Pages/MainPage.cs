@@ -48,8 +48,13 @@ namespace WebDriverLibrary.Pages
         public Button bNotASpam { get; set; }
         public Button bInBox { get; set; }
         public TextBox tbSignature { get; set; }
-
-
+        public CheckBox cbFirstMessage { get; set; }
+        public Button bCloseWindowMessage { get; set; }
+        public Button bStarMessage { get; set; }
+        public Button bStar { get; set; }
+        public Label lStarTitle { get; set; }
+        public Button bNotStar { get; set; }
+        //*[@aria-label='Помеченные']
         // public TextBox tTopicEmoji { get; set; }
 
         public MainPage(IWebDriver driver)
@@ -62,14 +67,14 @@ namespace WebDriverLibrary.Pages
             bMyAccount = new Button(By.XPath("//*[@id='gb']/div[1]/div[1]/div[2]/div[4]/div[1]/a/span"), driver);
             bExit = new Button(By.XPath("//*[@id='gb_71']"), driver);
             bOtherAccount = new Button(By.XPath("//*[@id='account-chooser-link']"), driver);
-            bAddAccount =new Button(By.XPath("//*[@id='account-chooser-add-account']"), driver); 
+            bAddAccount = new Button(By.XPath("//*[@id='account-chooser-add-account']"), driver);
             bAddOneMoreAccount = new Button(By.XPath("//*[@id='account-chooser-add-account']"), driver);
             bSettings = new Button(By.XPath("//div[@class ='aos T - I - J3 J - J5 - Ji']"), driver);
             bSettingsFromDropDownMenu = new Button(By.XPath("//*[@id=':21']/div[1]"), driver);
             bFirstUser = new Button(By.XPath("//*[@id='choose-account-0']"), driver);
             bSecondUser = new Button(By.XPath("//*[@id='choose-account-1']"), driver);
-            confirmButtonInNewTab= new Button(By.XPath("//input[@type='submit']"), driver);
-            bAttachFile= new Button(By.XPath("//div[@class='a1 aaA aMZ']"), driver);
+            confirmButtonInNewTab = new Button(By.XPath("//input[@type='submit']"), driver);
+            bAttachFile = new Button(By.XPath("//div[@class='a1 aaA aMZ']"), driver);
             tSerchBar = new TextBox(By.XPath("//input[@id='gbqfq']"), driver);
             bSearch = new Button(By.XPath("//button[@id='gbqfb']"), driver);
             bAlertFileIsTooBig = new Button(By.XPath("//div[@role='alertdialog']"), driver);
@@ -77,8 +82,8 @@ namespace WebDriverLibrary.Pages
             tRecipient = new TextBox(By.XPath("//textarea[@class='vO']"), driver);
             tTopic = new TextBox(By.XPath("//input[@class='aoT']"), driver);
             tLetter = new TextBox(By.XPath("//div[@class='Am Al editable LW-avf']"), driver);
-           // cFirstCheckBox = new CheckBox(By.XPath("//*[@id=':2j']/div"), driver);
-         cFirstCheckBox = new CheckBox(By.XPath("//div[@dir='ltr']"), driver);
+            // cFirstCheckBox = new CheckBox(By.XPath("//*[@id=':2j']/div"), driver);
+            cFirstCheckBox = new CheckBox(By.XPath("//div[@dir='ltr']"), driver);
             bFirstMessage = new Button(By.XPath("//span[@email='forwarding-noreply@google.com']"), driver);
 
             lForward = new Link(By.XPath("(//a[@target='_blank' and @rel='noreferrer'])[1]"), driver);
@@ -86,10 +91,15 @@ namespace WebDriverLibrary.Pages
             bEmoji1 = new Button(By.XPath("//button[@string='1f600']"), driver);
             bEmoji2 = new Button(By.XPath("//button[@string='1f601']"), driver);
             bSecondEmoji = new Button(By.XPath("//button[@title='Эмоции']"), driver);
-             bNotASpam = new Button((By.XPath("//div[contains(text(),'Не спам')]")), driver);
+            bNotASpam = new Button((By.XPath("//div[contains(text(),'Не спам')]")), driver);
             bInBox = new Button((By.XPath("//a[contains(text(),'Входящие')]")), driver);
-        tbSignature = new TextBox(By.XPath("//div[@class='gmail_signature']/div"), driver);
-
+            tbSignature = new TextBox(By.XPath("//div[@class='gmail_signature']/div"), driver);
+            cbFirstMessage = new CheckBox(By.XPath("div[contains(text(),'hi')]"), driver);
+            bCloseWindowMessage=new Button((By.XPath("//*[@ aria-label='Сохранить и закрыть']")), driver);
+            bStarMessage= new Button((By.XPath("(//table[@class='F cf zt']//td[@class='apU xY'])[1]")), driver);
+            // bStar = new Button((By.XPath("//*[@aria-label='Помеченные']")), driver);
+            lStarTitle=new Label((By.XPath("//*[@title='Помеченные']")),driver);
+            bNotStar = new Button(By.XPath("//span[@title='Помеченные']"),driver);
         }
         
     }

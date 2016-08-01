@@ -35,6 +35,23 @@ namespace WebDriverLibrary.Steps
             SpamPage spamPage = new SpamPage(driver);
             return spamPage.FindSpamSender().Equals(userEMail);
         }
+        public void MarkLetterNotSpam()
+        {
+            SpamPage spamPage = new SpamPage(driver);
+            Waiter.Wait();
+            IWebElement element = driver.FindElement(By.XPath("//div[@dir='ltr']"));
+            spamPage.cFirstCheckBox.Click();
+            spamPage.bNotASpam.Click();
+        }
+
+        public void OpenLetterAndMarkNotSpam()
+        {
+            SpamPage spamPage = new SpamPage(driver);
+            Waiter.Wait();
+            spamPage.bFirstMessage.Click();
+            spamPage.bOK.Click();
+          //  spamPage.bNotASpam.Click();
+        }
 
         //public void NotASpam()
         //{

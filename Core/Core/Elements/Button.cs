@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using Core.Elements;
+using System;
 
 namespace Core
 {
@@ -9,5 +10,19 @@ namespace Core
         {
 
         }
+
+        //public string GetAttribute()
+        //{
+        //    IWebElement element = null;
+        //    if (TryFindElement(out element))
+        //    {
+        //       return element.GetAttribute();
+        //    }
+        //    else
+        //    {
+        //        throw new Exception();
+
+        //    }
+        //}
     }
 }

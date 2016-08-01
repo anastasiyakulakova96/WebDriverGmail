@@ -26,9 +26,9 @@ namespace WebDriver.Tests
         private const string SETTINGPAGE = "fwdandpop";
         private const string TOPIC_LETTER_WITH_ATTACH = "letter with attech";
         private const string TOPIC_LETTER_WITHOUT_ATTACH = "hi";
-        private const string PATH_TO_SMALL_FILE = @"G:\свадьба.xlsx";
-        private const string PATH_TO_BIG_FILE = @"G:\1.rar";
-        private const string PATH_TO_SMALL_FILE2 = @"G:\DSC_8250.jpg";
+        private const string PATH_TO_SMALL_FILE = @"d:\свадьба.xlsx";
+        private const string PATH_TO_BIG_FILE = @"d:\1.rar";
+        private const string PATH_TO_SMALL_FILE2 = @"d:\DSC_8250.jpg";
         private const string SIGNATURE = "nastya";
 
         [SetUp]
@@ -54,68 +54,31 @@ namespace WebDriver.Tests
         public void SpamGmail()
         {
             stepForLogin.OpenStartPage();
-            stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
-            stepForMainPage.WriteALetter(ADDRESSEE);
-            stepForMainPage.LogOut();
             stepForLogin.LoginGmail(USEREMAIL2, USERPASSWORD2);
+            stepForMainPage.WriteALetter(USEREMAIL);
+            Waiter.Wait();
+            stepForMainPage.LogOut();
+            stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
             stepForMainPage.MarkTheLetter();
+            Waiter.Wait();
             stepForMainPage.LogOut2();
-            stepForLogin.LoginGmail(USERPASSWORD);
-            stepForMainPage.WriteALetter(ADDRESSEE);
+            stepForLogin.LoginGmail(USERPASSWORD2);
+            stepForMainPage.WriteALetter(USEREMAIL);
+            Waiter.Wait();
             stepForMainPage.LogOut2();
-            stepForLogin.LoginGmail2(USERPASSWORD2);
+            stepForLogin.LoginGmail2(USERPASSWORD);
             stepForSpamPage.GoToSpam(SPAMFOLDER);
             Waiter.Wait();
-            Assert.True(stepForSpamPage.AssertSpam(USEREMAIL), "all right");
+            Assert.True(stepForSpamPage.AssertSpam(USEREMAIL2));
+            Waiter.Wait();
+            stepForSpamPage.OpenLetterAndMarkNotSpam();
 
             // steps.NotASpam();
             //  steps.CloseBrowser();
             // steps.InitBrowser();
         }
 
-        [Test]
-        [Ignore("ignore")] //2
-        public void ForwardGmail()
-        {
-            stepForLogin.OpenStartPage();
-            stepForLogin.LoginGmail(USEREMAIL2, USERPASSWORD2);
-            stepForMainPage.OpenSettings();
-            stepForSettingsPage.SetForwardingToUserInSetting(USEREMAIL3);
-            stepForSettingsPage.SentEmail();
-            Waiter.Wait();
-            stepForMainPage.LogOut();
-            stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
-            Waiter.Wait();
-            stepForMainPage.OpenMessage();
-            stepForMainPage.LogOut2();
-            stepForLogin.LoginGmail(USERPASSWORD2);
-            stepForMainPage.OpenSettings();
-            stepForSettingsPage.ForwardACopyOfIncomingMailTo();
-            Waiter.Wait();
-            stepForSettingsPage.CreateNewFilter();
-            stepForSettingsPage.FillInNewFilterFrom(USEREMAIL);
-            Waiter.Wait();
-            stepForMainPage.LogOut222();
-            stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
-            stepForMainPage.WriteALetterWithAttach(USEREMAIL2, PATH_TO_SMALL_FILE);
-            Waiter.Wait();
-            stepForMainPage.WriteALetter(USEREMAIL2);
-            Waiter.Wait();
-            stepForMainPage.LogOut2();
-            Waiter.Wait();
-            stepForLogin.LoginGmail(USERPASSWORD2);
-            Waiter.Wait();
-            Assert.IsTrue(stepForMainPage.FindEmailInInbox(TOPIC_LETTER_WITHOUT_ATTACH));
-            stepForTrashPage.OpenTrash();
-            Waiter.Wait();
-            Assert.IsTrue(stepForTrashPage.FindEmailInTrash(TOPIC_LETTER_WITH_ATTACH));
-            Waiter.Wait();
-            stepForMainPage.LogOut2();
-            stepForLogin.LoginGmail2(USERPASSWORD3);
-            Assert.IsTrue(stepForMainPage.FindEmailInInbox(TOPIC_LETTER_WITHOUT_ATTACH));
-
-        }
-
+     
         [Test]
         [Ignore("ignore")] //3
         public void BigFileGmail()
@@ -175,26 +138,24 @@ namespace WebDriver.Tests
             stepForMainPage.MarkTheLetter();
             stepForSpamPage.GoToSpam(SPAMFOLDER);
             Waiter.Wait();
-            stepForMainPage.MarkLetterNotSpam();
+          stepForSpamPage.MarkLetterNotSpam();
             Waiter.Wait();
             stepForMainPage.OpenInBox();
             Waiter.Wait();
             Assert.IsTrue(stepForMainPage.CheckLetterInBox());
         }
 
+
         [Test]
-        // [Ignore("ignore")] //12
-        public void CheckingSignature()
+       // [Ignore("ignore")] //14
+        public void VacationGmail()
         {
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
-          //  stepForMainPage.OpenGeneralSettings();
-          //  stepForSettingsPage.EnterSignature(SIGNATURE);
-         //   Waiter.Wait();
-            stepForMainPage.WriteALetter();
-            Waiter.Wait();
-          //  stepForMainPage.CheckSignature(SIGNATURE);
-           Assert.IsTrue(stepForMainPage.CheckSignature(SIGNATURE));
+         //   stepForSettingsPage.VacationResponderOn();
         }
+        
+
+
     }
 }

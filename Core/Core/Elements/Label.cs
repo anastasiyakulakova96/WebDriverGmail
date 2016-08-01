@@ -1,7 +1,14 @@
-﻿namespace Core.Elements
+﻿using OpenQA.Selenium;
+using Core.Elements;
+using System;
+namespace Core.Elements
 {
-    public abstract class Label
+    public  class Label : Element
     {
-        void Click() { }
+        public Label(By by, IWebDriver driver) : base(by, driver)
+        {
+
+        }
+
     }
 }

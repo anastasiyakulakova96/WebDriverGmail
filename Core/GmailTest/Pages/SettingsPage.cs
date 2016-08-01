@@ -15,7 +15,7 @@ namespace WebDriverLibrary.Pages
     {
         private IWebDriver driver;
 
-      
+
         public SettingsPage(IWebDriver driver)
         {
             this.driver = driver;
@@ -41,8 +41,15 @@ namespace WebDriverLibrary.Pages
             bChooseFileFromComputer = new Button((By.XPath("//div[contains(text(),'Выберите файл на компьютере')]")), driver);
             bChooseThemeBeach = new Button(By.XPath("//div[contains(text(),'Lake Tahoe')]"), driver);
             rbSelectSignature = new RadioButton(By.XPath("//*[@name='sx_sg'][@value='1']"), driver);
+            rbNotSignature=new RadioButton(By.XPath("//*[@name='sx_sg'][@value='0']"), driver);
             tbxSignature = new TextBox(By.XPath("//div[@aria-label='Подпись']"), driver);
-           // btSaveChanges = new Button(By.XPath("//button[@guidedhelpid='save_changes_button']"), driver);
+            // btSaveChanges = new Button(By.XPath("//button[@guidedhelpid='save_changes_button']"), driver);
+            bOk = new Button(By.XPath("//button[contains(text(),'ОК')]"), driver);
+            bDeleteEmail = new Button(By.XPath("//option[contains(text(),' nastyakylakova96@gmail.com')]"), driver);
+            cbDeleteFilter = new CheckBox(By.XPath("//input[@type='checkbox']"), driver);
+            bDeleteFilter = new Button(By.XPath("//button[contains(text(),'Удалить')]"), driver);
+            rbSelectResponderOn = new RadioButton(By.XPath("//label[contains(text(), 'Включить автоответчик')]/ancestor::td/preceding-sibling::td/input"), driver);
+            tThemeResponder = new TextBox(By.XPath("//input[@aria-label='Тема']"), driver);
         }
 
         private string urlForSettings = "https://mail.google.com/mail/#settings/";
@@ -69,8 +76,17 @@ namespace WebDriverLibrary.Pages
         public TextBox tErrorFile { get; set; }
         public Button bChooseThemeBeach { get; set; }
         public RadioButton rbSelectSignature { get; set; }
+        public RadioButton rbNotSignature { get; set; }
         public TextBox tbxSignature { get; set; }
-      //  public Button btSaveChanges { get; set; }
+        public Button bDeleteEmail { get; set; }
+        public Button bOk { get; set; }
+        public CheckBox cbDeleteFilter { get; set; }
+        public Button bDeleteFilter { get; set; }
+        //  public Button btSaveChanges { get; set; }
+        public RadioButton rbSelectResponderOn { get; set; }
+        public TextBox tThemeResponder { get; set; }
+ 
+
 
     }
 }
