@@ -13,14 +13,9 @@ namespace WebDriver.Steps
 
         IWebDriver driver;
 
-        public void InitBrowser()
+        public StepForLoginPage(IWebDriver driver)
         {
-            driver = Driver.GetDriver();
-        }
-
-        public void CloseBrowser()
-        {
-            Driver.CloseBrowser();
+            this.driver = driver;
         }
 
         public override void OpenStartPage()
@@ -35,7 +30,7 @@ namespace WebDriver.Steps
 
             loginPage.tInputEmailField.SetText(userEmail);
             loginPage.bNext.Click();
-                       loginPage.tinputPasswordField.SetText(password);
+            loginPage.tinputPasswordField.SetText(password);
             loginPage.bEnter.Click();
         }
 

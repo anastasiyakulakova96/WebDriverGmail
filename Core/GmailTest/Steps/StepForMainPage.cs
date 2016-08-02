@@ -19,15 +19,9 @@ namespace WebDriverLibrary.Steps
         private const string SETTINGPAGE = "fwdandpop";
         private const string THEMES_PAGE = "oldthemes";
 
-
-        public void InitBrowser()
+        public StepForMainPage(IWebDriver driver)
         {
-            driver = Driver.GetDriver();
-        }
-
-        public void CloseBrowser()
-        {
-            Driver.CloseBrowser();
+            this.driver = driver;
         }
 
         public void WriteALetter(string addressee)
@@ -275,20 +269,7 @@ namespace WebDriverLibrary.Steps
                 return false;
             }
         }
-        //public void IsStarSelect()
-        //{
-        //    MainPage mainPage = new MainPage(driver);
-        //   // mainPage.bStar.
-        //        mainPage.bStar.Ielement.GetAttribute("aria-label");
-        //}
 
-        //public void DeleteMessage(string topicLine)
-        //{
-        //    // IWebElement topic = driver.FindElement(By.XPath("div[contains(text(),'hi')]"));
-        //    //   topic.Click();
-        //    MainPage mainPage = new MainPage(driver);
-        //    mainPage.bMark.Click();
-
-        //}
+       
     }
 }

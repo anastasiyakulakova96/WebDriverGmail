@@ -50,7 +50,9 @@ namespace WebDriverLibrary.Pages
             bDeleteFilter = new Button(By.XPath("//button[contains(text(),'Удалить')]"), driver);
             rbSelectResponderOn = new RadioButton(By.XPath("//label[contains(text(), 'Включить автоответчик')]/ancestor::td/preceding-sibling::td/input"), driver);
             tThemeResponder = new TextBox(By.XPath("//input[@aria-label='Тема']"), driver);
-        }
+            tBodyResponder= new TextBox(By.XPath("//div[@aria-label='Автоответчик']"), driver);
+           
+    }
 
         private string urlForSettings = "https://mail.google.com/mail/#settings/";
         public string URL { get { return urlForSettings; } set { urlForSettings = value; } }
@@ -85,7 +87,8 @@ namespace WebDriverLibrary.Pages
         //  public Button btSaveChanges { get; set; }
         public RadioButton rbSelectResponderOn { get; set; }
         public TextBox tThemeResponder { get; set; }
- 
+        public TextBox tBodyResponder { get; set; }
+
 
 
     }

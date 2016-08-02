@@ -18,14 +18,9 @@ namespace WebDriverLibrary.Steps
         public IWebDriver driver;
         private const string FILTERPAGE = "filters";
 
-        public void InitBrowser()
+        public StepsForSettingsPage(IWebDriver driver)
         {
-            driver = Driver.GetDriver();
-        }
-
-        public void CloseBrowser()
-        {
-            Driver.CloseBrowser();
+            this.driver = driver;
         }
 
         public void SetForwardingToUserInSetting(string addressee)
@@ -52,7 +47,6 @@ namespace WebDriverLibrary.Steps
             settingPage.rbForwardACopyOfIncomingMail.Click();
             settingPage.bSaveChanges.Click();
         }
-
 
         public void CreateNewFilter()
         {
@@ -154,5 +148,18 @@ namespace WebDriverLibrary.Steps
             Waiter.Wait();
             settingPage.bOk.Click();
         }
+
+        public void VacationResponderOn(string  themes,string text)
+        {
+            SettingsPage settingPage = new SettingsPage(driver);
+            settingPage.rbSelectResponderOn.Click();
+            settingPage.tThemeResponder.ClearText();
+            settingPage.tThemeResponder.SetText(themes);
+            settingPage.tBodyResponder.ClearText();
+            settingPage.tBodyResponder.SetText(text);
+            settingPage.bSaveChanges.Click();
+
+        }
+
     }
 }

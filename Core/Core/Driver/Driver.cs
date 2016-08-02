@@ -16,6 +16,10 @@ namespace Core.Driver
         {
             //_driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(3));
             //_driver.Manage().Window.Maximize();
+            if(_driver == null)
+            {
+                _driver = CreatDriver();
+            }
             return _driver;
         }
 
@@ -44,8 +48,13 @@ namespace Core.Driver
 
         public static void CloseBrowser()
         {
-            _driver.Close();
+            _driver.Quit();
             _driver = null;
+        }
+
+        public static void QuitDriver()
+        {
+            _driver.Quit();
         }
     }
 }

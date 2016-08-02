@@ -13,22 +13,22 @@ C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTes
 C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\obj\Debug\GmailTest.pdb
 C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\obj\Debug\Interop.AutoItX3Lib.dll
 C:\Users\Anastasiya_Kulakova\Documents\Visual Studio 2015\Projects\Core\GmailTest\obj\Debug\GmailTest.csproj.ResolveComReference.cache
-C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.csprojResolveAssemblyReference.cache
-C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.csproj.ResolveComReference.cache
-C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.dll
-C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.pdb
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\GmailTest.dll
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\GmailTest.pdb
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\Core.dll
+C:\WebDriverGmail\Core\GmailTest\bin\Debug\Newtonsoft.Json.dll
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\nunit.framework.dll
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\WebDriver.dll
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\WebDriver.Support.dll
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\Core.pdb
+C:\WebDriverGmail\Core\GmailTest\bin\Debug\Newtonsoft.Json.xml
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\nunit.framework.xml
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\WebDriver.xml
 C:\WebDriverGmail\Core\GmailTest\bin\Debug\WebDriver.Support.xml
+C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.csprojResolveAssemblyReference.cache
 C:\WebDriverGmail\Core\GmailTest\obj\Debug\Interop.AutoItX3Lib.dll
-C:\WebDriverGmail\Core\GmailTest\bin\Debug\Newtonsoft.Json.dll
-C:\WebDriverGmail\Core\GmailTest\bin\Debug\Newtonsoft.Json.xml
+C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.csproj.ResolveComReference.cache
 C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.Data.resources
 C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.csproj.GenerateResource.Cache
+C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.dll
+C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.pdb

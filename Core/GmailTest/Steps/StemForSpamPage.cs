@@ -14,15 +14,11 @@ namespace WebDriverLibrary.Steps
     {
         IWebDriver driver;
 
-        public void InitBrowser()
+        public StemForSpamPage(IWebDriver driver)
         {
-            driver = Driver.GetDriver();
+            this.driver = driver;
         }
 
-        public void CloseBrowser()
-        {
-            Driver.CloseBrowser();
-        }
         public void GoToSpam(string spamFolder)
         {
             SpamPage spamPage = new SpamPage(driver);

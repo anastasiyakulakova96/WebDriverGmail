@@ -3,16 +3,23 @@ using System.IO;
 
 namespace Core.Utils
 {
-    class Logger
+    public class Logger
     {
         public string pathWithNameFile = Data.pathLog + @"\" + Data.nameLogFile;
-
+        
         private static Logger logger;
         private StreamWriter writer;
 
         private Logger()
         {
             writer = new StreamWriter(File.Create(pathWithNameFile));
+        }
+
+        public static Logger GetLogger(Type type)
+        {
+            Logger logger = GetLogger();
+            logger.ForClass(type);
+            return logger;
         }
 
         public static Logger GetLogger()
@@ -24,6 +31,11 @@ namespace Core.Utils
             return logger;
         }
 
+        public void ForClass(Type type)
+        {
+            writer.WriteLine(type.Name + ": ");
+        }
+
         public void Log(String message)
         {
             writer.WriteLine(message);
@@ -32,6 +44,7 @@ namespace Core.Utils
         public void Close()
         {
             writer.Close();
+            logger = null;
         }
     }
 }

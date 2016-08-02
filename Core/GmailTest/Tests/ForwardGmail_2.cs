@@ -3,17 +3,22 @@ using WebDriver.Steps;
 using WebDriverLibrary.Steps;
 using NUnit;
 using GmailTest.Steps;
+using OpenQA.Selenium;
+using Core.Driver;
+using Core.Utils;
 
 namespace GmailTest.Tests
 {
     [TestFixture]
-    public class ForwardGmail
+    public class ForwardGmail_2
     {
-        StepForLoginPage stepForLogin = new StepForLoginPage();
-        StepForMainPage stepForMainPage = new StepForMainPage();
-        StemForSpamPage stepForSpamPage = new StemForSpamPage();
-        StepsForSettingsPage stepForSettingsPage = new StepsForSettingsPage();
-        StepForTrashPage stepForTrashPage = new StepForTrashPage();
+        Logger logger;
+
+        StepForLoginPage stepForLogin;
+        StepForMainPage stepForMainPage;
+        StemForSpamPage stepForSpamPage;
+        StepsForSettingsPage stepForSettingsPage;
+        StepForTrashPage stepForTrashPage;
 
         private const string USEREMAIL = "anastasiyaliazhniuk@gmail.com";
         private const string USERPASSWORD = "meniti82";
@@ -26,26 +31,32 @@ namespace GmailTest.Tests
         private const string SETTINGPAGE = "fwdandpop";
         private const string TOPIC_LETTER_WITH_ATTACH = "letter with attech";
         private const string TOPIC_LETTER_WITHOUT_ATTACH = "hi";
-        private const string PATH_TO_SMALL_FILE = @"d:\свадьба.xlsx";
-        private const string PATH_TO_BIG_FILE = @"d:\1.rar";
-        private const string PATH_TO_SMALL_FILE2 = @"d:\DSC_8250.jpg";
+        private const string PATH_TO_SMALL_FILE = @"g:\свадьба.xlsx";
+        private const string PATH_TO_BIG_FILE = @"g:\1.rar";
+        private const string PATH_TO_SMALL_FILE2 = @"g:\DSC_8250.jpg";
         private const string SIGNATURE = "nastya";
 
         [SetUp]
         public void Init()
         {
-            stepForLogin.InitBrowser();
-            stepForMainPage.InitBrowser();
-            stepForSpamPage.InitBrowser();
-            stepForSettingsPage.InitBrowser();
-            stepForTrashPage.InitBrowser();
+            logger = Logger.GetLogger(typeof(ForwardGmail_2));
+            logger.Log("[SetUp] Init()");
 
+            IWebDriver driver = Driver.GetDriver();
+
+            stepForLogin = new StepForLoginPage(driver);
+            stepForMainPage = new StepForMainPage(driver);
+            stepForSpamPage = new StemForSpamPage(driver);
+            stepForSettingsPage = new StepsForSettingsPage(driver);
+            stepForTrashPage = new StepForTrashPage(driver);
         }
 
         [Test]
-        [Ignore("ignore")] //2
+      //  [Ignore("ignore")] //2
         public void ForwardGmailTest()
         {
+            logger.Log("[Test] ForwardGmailTest() started");
+
             //stepForLogin.OpenStartPage();
             //stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
             stepForLogin.OpenStartPage();
@@ -86,11 +97,15 @@ namespace GmailTest.Tests
             stepForLogin.LoginGmail2(USERPASSWORD3);
             Waiter.Wait();
             Assert.IsTrue(stepForMainPage.FindEmailInInbox(TOPIC_LETTER_WITHOUT_ATTACH));
+
+            logger.Log("[Test] ForwardGmailTest() finished");
         }
 
         [TearDown]
         public void Clean()
         {
+            logger.Log("[TearDown] Clean()");
+
             Waiter.Wait();
             stepForMainPage.LogOut2();
             Waiter.Wait();
@@ -102,7 +117,9 @@ namespace GmailTest.Tests
             stepForSettingsPage.OpenFilterPage();
             Waiter.Wait();
             stepForSettingsPage.DeleteFilter();
+            Driver.CloseBrowser();
 
+            logger.Close();
         }
 
     }

@@ -75,9 +75,9 @@
     <Compile Include="Steps\StepForTrashPage.cs" />
     <Compile Include="Steps\StepsForSettingsPage.cs" />
     <Compile Include="Steps\Waiter.cs" />
-    <Compile Include="Tests\ForwardGmail.cs" />
-    <Compile Include="Tests\SignatureGmail.cs" />
-    <Compile Include="Tests\StarGmail.cs" />
+    <Compile Include="Tests\ForwardGmail_2.cs" />
+    <Compile Include="Tests\SignatureGmail_12.cs" />
+    <Compile Include="Tests\StarGmail_13.cs" />
     <Compile Include="Tests\TestClass.cs" />
   </ItemGroup>
   <ItemGroup>

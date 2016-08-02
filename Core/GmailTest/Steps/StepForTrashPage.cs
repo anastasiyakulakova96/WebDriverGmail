@@ -13,15 +13,10 @@ namespace GmailTest.Steps
   public  class StepForTrashPage
     {
         IWebDriver driver;
-       
-        public void InitBrowser()
-        {
-            driver = Driver.GetDriver();
-        }
 
-        public void CloseBrowser()
+        public StepForTrashPage(IWebDriver driver)
         {
-            Driver.CloseBrowser();
+            this.driver = driver;
         }
 
         public void OpenTrash()
