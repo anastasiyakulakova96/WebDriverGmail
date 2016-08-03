@@ -8,18 +8,17 @@ using System;
 
 namespace WebDriver
 {
-    public class LoginPage 
+    public class LoginPage
     {
         private string BASE_URL = "https://mail.google.com/";
         public string URL { get { return BASE_URL; } set { BASE_URL = value; } }
-              public Button bNext { get; set; }
+        public Button bNext { get; set; }
         public Button bEnter { get; set; }
         public Button bFirstUser { get; set; }
         public Button bSecondUser { get; set; }
-
         public TextBox tInputEmailField { get; set; }
         public TextBox tinputPasswordField { get; set; }
-        
+
         private IWebDriver driver;
 
         public LoginPage(IWebDriver driver)
@@ -31,7 +30,6 @@ namespace WebDriver
             bEnter = new Button(By.Id("signIn"), driver);
             bFirstUser = new Button(By.XPath("//*[@id='choose-account-0']"), driver);
             bSecondUser = new Button(By.XPath("//*[@id='choose-account-1']"), driver);
-
             tInputEmailField = new TextBox(By.Id("Email"), driver);
             tinputPasswordField = new TextBox(By.Id("Passwd"), driver);
         }

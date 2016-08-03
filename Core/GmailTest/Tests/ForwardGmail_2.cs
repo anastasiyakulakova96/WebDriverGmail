@@ -12,29 +12,29 @@ namespace GmailTest.Tests
     [TestFixture]
     public class ForwardGmail_2
     {
-        Logger logger;
+        private string USEREMAIL = Data.usermail;
+        private string USERPASSWORD = Data.userpassword;
+        private string USEREMAIL2 = Data.usermail2;
+        private string USERPASSWORD2 = Data.userpassword2;
+        private string SPAMFOLDER = Data.spamFolder;
+        private string USEREMAIL3 = Data.usermail3;
+        private string USERPASSWORD3 = Data.userpassword3;
+        private string SETTINGPAGE = Data.settingPage;
+        private string TOPIC_LETTER_WITH_ATTACH = Data.topicLetterWithAttech;
+        private string TOPIC_LETTER_WITHOUT_ATTACH = Data.topicLetterWithoutAttech;
+        private string PATH_TO_SMALL_FILE = Data.pathToSmallFile;
+        private string PATH_TO_BIG_FILE = Data.pathToBigFile;
+        private string PATH_TO_SMALL_FILE2 = Data.pathToSmallFileForCheck;
+        private string SIGNATURE = Data.signature;
+        private string THEMES_FOR_VOCATION_RESPONDER = Data.themVocation;
+        private string MESSAGE_FOR_VOCATION_RESPONDER = Data.messageVocation;
 
+
+        Logger logger;
         StepForLoginPage stepForLogin;
         StepForMainPage stepForMainPage;
-        StemForSpamPage stepForSpamPage;
         StepsForSettingsPage stepForSettingsPage;
         StepForTrashPage stepForTrashPage;
-
-        private const string USEREMAIL = "anastasiyaliazhniuk@gmail.com";
-        private const string USERPASSWORD = "meniti82";
-        private const string ADDRESSEE = "s.lezhnyuk@gmail.com";
-        private const string USEREMAIL2 = "s.lezhnyuk@gmail.com";
-        private const string USERPASSWORD2 = "m1am1g0s";
-        private const string SPAMFOLDER = "in:spam";
-        private const string USEREMAIL3 = "nastyakylakova96@gmail.com";
-        private const string USERPASSWORD3 = "meniti82";
-        private const string SETTINGPAGE = "fwdandpop";
-        private const string TOPIC_LETTER_WITH_ATTACH = "letter with attech";
-        private const string TOPIC_LETTER_WITHOUT_ATTACH = "hi";
-        private const string PATH_TO_SMALL_FILE = @"g:\свадьба.xlsx";
-        private const string PATH_TO_BIG_FILE = @"g:\1.rar";
-        private const string PATH_TO_SMALL_FILE2 = @"g:\DSC_8250.jpg";
-        private const string SIGNATURE = "nastya";
 
         [SetUp]
         public void Init()
@@ -46,81 +46,78 @@ namespace GmailTest.Tests
 
             stepForLogin = new StepForLoginPage(driver);
             stepForMainPage = new StepForMainPage(driver);
-            stepForSpamPage = new StemForSpamPage(driver);
+
             stepForSettingsPage = new StepsForSettingsPage(driver);
             stepForTrashPage = new StepForTrashPage(driver);
         }
 
         [Test]
-      //  [Ignore("ignore")] //2
+        //  [Ignore("ignore")] //2
         public void ForwardGmailTest()
         {
             logger.Log("[Test] ForwardGmailTest() started");
 
-            //stepForLogin.OpenStartPage();
-            //stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL2, USERPASSWORD2);
             stepForMainPage.OpenSettings();
             stepForSettingsPage.SetForwardingToUserInSetting(USEREMAIL3);
             stepForSettingsPage.SentEmail();
-            Waiter.Wait();
-            stepForMainPage.LogOut();
+            Waiter.WaitElement();
+            stepForMainPage.LogOutWithAddOneMoreAccount();
             stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
-            Waiter.Wait();
+            Waiter.WaitElement();
             stepForMainPage.OpenMessage();
-            stepForMainPage.LogOut2();
+            stepForMainPage.LogOut();
             stepForLogin.LoginGmail(USERPASSWORD2);
             stepForMainPage.OpenSettings();
             stepForSettingsPage.ForwardACopyOfIncomingMailTo();
-            Waiter.Wait();
+            Waiter.WaitElement();
             stepForSettingsPage.OpenFilterPage();
             stepForSettingsPage.CreateNewFilter();
             stepForSettingsPage.FillInNewFilterFrom(USEREMAIL);
-            Waiter.Wait();
-            stepForMainPage.LogOut222();
+            Waiter.WaitElement();
+            stepForMainPage.LogOutWithAddAccaunt();
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
             stepForMainPage.WriteALetterWithAttach(USEREMAIL2, PATH_TO_SMALL_FILE);
-            Waiter.Wait();
+            Waiter.WaitElement();
             stepForMainPage.WriteALetter(USEREMAIL2);
-            Waiter.Wait();
-            stepForMainPage.LogOut2();
-            Waiter.Wait();
+            Waiter.WaitElement();
+            stepForMainPage.LogOut();
+            Waiter.WaitElement();
             stepForLogin.LoginGmail(USERPASSWORD2);
-            Waiter.Wait();
+            Waiter.WaitElement();
             Assert.IsTrue(stepForMainPage.FindEmailInInbox(TOPIC_LETTER_WITHOUT_ATTACH));
             stepForTrashPage.OpenTrash();
-            Waiter.Wait();
+            Waiter.WaitElement();
             Assert.IsTrue(stepForTrashPage.FindEmailInTrash(TOPIC_LETTER_WITH_ATTACH));
-            Waiter.Wait();
-            stepForMainPage.LogOut2();
-            stepForLogin.LoginGmail2(USERPASSWORD3);
-            Waiter.Wait();
+            Waiter.WaitElement();
+            stepForMainPage.LogOut();
+            stepForLogin.LoginGmailAsSecondUser(USERPASSWORD3);
+            Waiter.WaitElement();
             Assert.IsTrue(stepForMainPage.FindEmailInInbox(TOPIC_LETTER_WITHOUT_ATTACH));
 
             logger.Log("[Test] ForwardGmailTest() finished");
         }
 
         [TearDown]
-        public void Clean()
+        public void CleanUp()
         {
-            logger.Log("[TearDown] Clean()");
+            logger.Log("[TearDown] CleanUp()");
 
-            Waiter.Wait();
-            stepForMainPage.LogOut2();
-            Waiter.Wait();
+            Waiter.WaitElement();
+            stepForMainPage.LogOut();
+            Waiter.WaitElement();
             stepForLogin.LoginGmail(USERPASSWORD2);
-            Waiter.Wait();
+            Waiter.WaitElement();
             stepForMainPage.OpenSettings();
             stepForSettingsPage.DeleteEmail();
-            Waiter.Wait();
+            Waiter.WaitElement();
             stepForSettingsPage.OpenFilterPage();
-            Waiter.Wait();
+            Waiter.WaitElement();
             stepForSettingsPage.DeleteFilter();
             Driver.CloseBrowser();
 
             logger.Close();
         }
-
     }
 }

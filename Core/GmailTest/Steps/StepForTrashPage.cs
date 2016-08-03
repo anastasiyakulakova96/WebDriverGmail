@@ -10,27 +10,31 @@ using System.Threading.Tasks;
 
 namespace GmailTest.Steps
 {
-  public  class StepForTrashPage
+    public class StepForTrashPage
     {
         IWebDriver driver;
+        TrashPage trashPage;
 
         public StepForTrashPage(IWebDriver driver)
         {
             this.driver = driver;
+            trashPage = new TrashPage(driver);
         }
 
         public void OpenTrash()
         {
-            TrashPage trashPage = new TrashPage(driver);
+          //  TrashPage trashPage = new TrashPage(driver);
             trashPage.tSerchBar.SetText("in:trash");
             trashPage.bSearch.Click();
         }
 
         public bool FindEmailInTrash(String topicLine)
         {
-            IWebElement topic = driver.FindElement(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/.."));
-            IWebElement impotant = driver.FindElement(By.XPath("//div[@aria-label='Отмечено как важное потому, что подходит под условия одного из ваших фильтров важности.']"));
-                   if (topic!=null)
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@aria-label='Отмечено как важное потому, что подходит под условия одного из ваших фильтров важности.']")));
+
+            if (driver.FindElements(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")).Count != 0 && driver.FindElements(By.XPath("//div[@aria-label='Отмечено как важное потому, что подходит под условия одного из ваших фильтров важности.']")).Count != 0)
             {
                 return true;
             }

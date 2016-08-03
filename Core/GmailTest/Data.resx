@@ -117,7 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="filterPage" xml:space="preserve">
+    <value>filters</value>
+  </data>
   <data name="ipAddress" xml:space="preserve">
     <value>155.120.20.3</value>
+  </data>
+  <data name="messageVocation" xml:space="preserve">
+    <value>Vacation responder on</value>
+  </data>
+  <data name="pathToBigFile" xml:space="preserve">
+    <value>d:\1.rar</value>
+  </data>
+  <data name="pathToSmallFile" xml:space="preserve">
+    <value>d:\свадьба.xlsx</value>
+  </data>
+  <data name="pathToSmallFileForCheck" xml:space="preserve">
+    <value>d:\DSC_8250.jpg</value>
+  </data>
+  <data name="settingPage" xml:space="preserve">
+    <value>fwdandpop</value>
+  </data>
+  <data name="signature" xml:space="preserve">
+    <value>nastya</value>
+  </data>
+  <data name="spamFolder" xml:space="preserve">
+    <value>in:spam</value>
+  </data>
+  <data name="themVocation" xml:space="preserve">
+    <value>Vacation responder</value>
+  </data>
+  <data name="topicLetterWithAttech" xml:space="preserve">
+    <value>letter with attech</value>
+  </data>
+  <data name="topicLetterWithoutAttech" xml:space="preserve">
+    <value>hi</value>
+  </data>
+  <data name="usermail" xml:space="preserve">
+    <value>anastasiyaliazhniuk@gmail.com</value>
+  </data>
+  <data name="usermail2" xml:space="preserve">
+    <value>s.lezhnyuk@gmail.com</value>
+  </data>
+  <data name="usermail3" xml:space="preserve">
+    <value>nastyakylakova96@gmail.com</value>
+  </data>
+  <data name="userpassword" xml:space="preserve">
+    <value>meniti82</value>
+  </data>
+  <data name="userpassword2" xml:space="preserve">
+    <value>m1am1g0s</value>
+  </data>
+  <data name="userpassword3" xml:space="preserve">
+    <value>meniti82</value>
   </data>
 </root>

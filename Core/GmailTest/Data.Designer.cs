@@ -61,11 +61,164 @@ namespace GmailTest {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to filters.
+        /// </summary>
+        internal static string filterPage {
+            get {
+                return ResourceManager.GetString("filterPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 155.120.20.3.
         /// </summary>
         internal static string ipAddress {
             get {
                 return ResourceManager.GetString("ipAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vacation responder on.
+        /// </summary>
+        internal static string messageVocation {
+            get {
+                return ResourceManager.GetString("messageVocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to d:\1.rar.
+        /// </summary>
+        internal static string pathToBigFile {
+            get {
+                return ResourceManager.GetString("pathToBigFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to d:\свадьба.xlsx.
+        /// </summary>
+        internal static string pathToSmallFile {
+            get {
+                return ResourceManager.GetString("pathToSmallFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to d:\DSC_8250.jpg.
+        /// </summary>
+        internal static string pathToSmallFileForCheck {
+            get {
+                return ResourceManager.GetString("pathToSmallFileForCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to fwdandpop.
+        /// </summary>
+        internal static string settingPage {
+            get {
+                return ResourceManager.GetString("settingPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to nastya.
+        /// </summary>
+        internal static string signature {
+            get {
+                return ResourceManager.GetString("signature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to in:spam.
+        /// </summary>
+        internal static string spamFolder {
+            get {
+                return ResourceManager.GetString("spamFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vacation responder.
+        /// </summary>
+        internal static string themVocation {
+            get {
+                return ResourceManager.GetString("themVocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to letter with attech.
+        /// </summary>
+        internal static string topicLetterWithAttech {
+            get {
+                return ResourceManager.GetString("topicLetterWithAttech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hi.
+        /// </summary>
+        internal static string topicLetterWithoutAttech {
+            get {
+                return ResourceManager.GetString("topicLetterWithoutAttech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to anastasiyaliazhniuk@gmail.com.
+        /// </summary>
+        internal static string usermail {
+            get {
+                return ResourceManager.GetString("usermail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to s.lezhnyuk@gmail.com.
+        /// </summary>
+        internal static string usermail2 {
+            get {
+                return ResourceManager.GetString("usermail2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to nastyakylakova96@gmail.com.
+        /// </summary>
+        internal static string usermail3 {
+            get {
+                return ResourceManager.GetString("usermail3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to meniti82.
+        /// </summary>
+        internal static string userpassword {
+            get {
+                return ResourceManager.GetString("userpassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to m1am1g0s.
+        /// </summary>
+        internal static string userpassword2 {
+            get {
+                return ResourceManager.GetString("userpassword2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to meniti82.
+        /// </summary>
+        internal static string userpassword3 {
+            get {
+                return ResourceManager.GetString("userpassword3", resourceCulture);
             }
         }
     }

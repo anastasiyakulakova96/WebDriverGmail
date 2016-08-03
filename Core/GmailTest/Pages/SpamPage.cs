@@ -12,20 +12,19 @@ namespace WebDriverLibrary.Pages
 {
     public class SpamPage
     {
+        private IWebDriver driver;
+
         public TextBox tInputField { get; set; }
         public Button bSearchSpamFolder { get; set; }
         public Button bNotASpam { get; set; }
         public Button bOK { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//span[text()='Станислав Лежнюк']")]
-        private IWebElement senderOfSpam;
-
         public Button bSenderOfSpam1 { get; set; }
         public CheckBox cFirstCheckBox { get; set; }
         public Button bMark { get; set; }
         public Button bFirstMessage { get; set; }
-
-        private IWebDriver driver;
+        [FindsBy(How = How.XPath, Using = "//span[text()='Станислав Лежнюк']")]
+        private IWebElement senderOfSpam;
+        public string firstCheckBox = "//div[@dir='ltr']";
 
         public SpamPage(IWebDriver driver)
         {

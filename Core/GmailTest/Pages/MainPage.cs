@@ -12,7 +12,6 @@ namespace WebDriverLibrary.Pages
 {
     public class MainPage
     {
-
         private IWebDriver driver;
 
         private string urlForSettings = "https://mail.google.com/mail/#settings/";
@@ -54,13 +53,12 @@ namespace WebDriverLibrary.Pages
         public Button bStar { get; set; }
         public Label lStarTitle { get; set; }
         public Button bNotStar { get; set; }
-        //*[@aria-label='Помеченные']
-        // public TextBox tTopicEmoji { get; set; }
 
         public MainPage(IWebDriver driver)
         {
             this.driver = driver;
             PageFactory.InitElements(this.driver, this);
+
             bWriteEMail = new Button(By.XPath("//div[@class='T-I J-J5-Ji T-I-KE L3']"), driver);
             bSend = new Button(By.XPath("//div[@class = 'T-I J-J5-Ji aoO T-I-atl L3']"), driver);
             bMark = new Button(By.XPath("//div[@class = 'asl T-I-J3 J-J5-Ji']"), driver);
@@ -78,14 +76,11 @@ namespace WebDriverLibrary.Pages
             tSerchBar = new TextBox(By.XPath("//input[@id='gbqfq']"), driver);
             bSearch = new Button(By.XPath("//button[@id='gbqfb']"), driver);
             bAlertFileIsTooBig = new Button(By.XPath("//div[@role='alertdialog']"), driver);
-
             tRecipient = new TextBox(By.XPath("//textarea[@class='vO']"), driver);
             tTopic = new TextBox(By.XPath("//input[@class='aoT']"), driver);
             tLetter = new TextBox(By.XPath("//div[@class='Am Al editable LW-avf']"), driver);
-            // cFirstCheckBox = new CheckBox(By.XPath("//*[@id=':2j']/div"), driver);
             cFirstCheckBox = new CheckBox(By.XPath("//div[@dir='ltr']"), driver);
             bFirstMessage = new Button(By.XPath("//span[@email='forwarding-noreply@google.com']"), driver);
-
             lForward = new Link(By.XPath("(//a[@target='_blank' and @rel='noreferrer'])[1]"), driver);
             bEmojiButton = new Button(By.XPath("//div[@class='QT aaA aMZ']"), driver);
             bEmoji1 = new Button(By.XPath("//button[@string='1f600']"), driver);
@@ -95,12 +90,10 @@ namespace WebDriverLibrary.Pages
             bInBox = new Button((By.XPath("//a[contains(text(),'Входящие')]")), driver);
             tbSignature = new TextBox(By.XPath("//div[@class='gmail_signature']/div"), driver);
             cbFirstMessage = new CheckBox(By.XPath("div[contains(text(),'hi')]"), driver);
-            bCloseWindowMessage=new Button((By.XPath("//*[@ aria-label='Сохранить и закрыть']")), driver);
-            bStarMessage= new Button((By.XPath("(//table[@class='F cf zt']//td[@class='apU xY'])[1]")), driver);
-            // bStar = new Button((By.XPath("//*[@aria-label='Помеченные']")), driver);
-            lStarTitle=new Label((By.XPath("//*[@title='Помеченные']")),driver);
-            bNotStar = new Button(By.XPath("//span[@title='Помеченные']"),driver);
+            bCloseWindowMessage = new Button((By.XPath("//*[@ aria-label='Сохранить и закрыть']")), driver);
+            bStarMessage = new Button((By.XPath("(//table[@class='F cf zt']//td[@class='apU xY'])[1]")), driver);
+            lStarTitle = new Label((By.XPath("//*[@title='Помеченные']")), driver);
+            bNotStar = new Button(By.XPath("//span[@title='Помеченные']"), driver);
         }
-        
     }
 }

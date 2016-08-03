@@ -3,18 +3,21 @@ using WebDriver.Steps;
 using WebDriverLibrary.Steps;
 using NUnit;
 using GmailTest.Steps;
-using Core.Driver;
 using OpenQA.Selenium;
+using Core.Driver;
 using Core.Utils;
 
 namespace GmailTest.Tests
 {
     [TestFixture]
-    public class SignatureGmail_12
+    public class VacationGmail_14
     {
         private string USEREMAIL = Data.usermail;
         private string USERPASSWORD = Data.userpassword;
-        private string SIGNATURE = Data.signature;
+        private string USEREMAIL3 = Data.usermail3;
+        private string USERPASSWORD3 = Data.usermail3;
+        private string THEMES_FOR_VOCATION_RESPONDER = Data.themVocation;
+        private string MESSAGE_FOR_VOCATION_RESPONDER = Data.messageVocation;
 
         Logger logger;
         StepForLoginPage stepForLogin;
@@ -24,7 +27,7 @@ namespace GmailTest.Tests
         [SetUp]
         public void Init()
         {
-            logger = Logger.GetLogger(typeof(SignatureGmail_12));
+            logger = Logger.GetLogger(typeof(VacationGmail_14));
             logger.Log("[SetUp] Init()");
 
             IWebDriver driver = Driver.GetDriver();
@@ -39,31 +42,32 @@ namespace GmailTest.Tests
         {
             logger.Log("[TearDown] CleanUp()");
 
-            stepForMainPage.CloseWindowWithMessage();
+            stepForMainPage.LogOut();
+            stepForLogin.LoginGmail(USERPASSWORD);
             stepForMainPage.OpenGeneralSettings();
-            stepForSettingsPage.DeleteSignature();
+            stepForSettingsPage.VacationResponderOff();
             Driver.CloseBrowser();
 
             logger.Close();
         }
 
         [Test]
-        //  [Ignore("ignore")] //12
-        public void CheckingSignature()
+        //  [Ignore("ignore")] //14
+        public void VacationGmail()
         {
-            logger.Log("[Test] CheckingSignature() started");
+            logger.Log("[Test] VacationGmail() started");
 
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
             stepForMainPage.OpenGeneralSettings();
-            stepForSettingsPage.EnterSignature(SIGNATURE);
+            stepForSettingsPage.VacationResponderOn(THEMES_FOR_VOCATION_RESPONDER, MESSAGE_FOR_VOCATION_RESPONDER);
             Waiter.WaitElement();
-            stepForMainPage.WriteALetter();
-            Waiter.WaitElement();
-            stepForMainPage.CheckSignature(SIGNATURE);
-            Assert.IsTrue(stepForMainPage.CheckSignature(SIGNATURE));
+            stepForMainPage.LogOutWithAddOneMoreAccount();
+            stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
+            stepForMainPage.WriteALetter(USEREMAIL);
+            Assert.IsTrue(stepForMainPage.CheckVocationResponder());
 
-            logger.Log("[Test] CheckingSignature() finished");
+            logger.Log("[Test] VacationGmail() finished");
         }
     }
 }

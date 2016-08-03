@@ -74,11 +74,12 @@
     <Compile Include="Steps\StepForMainPage.cs" />
     <Compile Include="Steps\StepForTrashPage.cs" />
     <Compile Include="Steps\StepsForSettingsPage.cs" />
-    <Compile Include="Steps\Waiter.cs" />
+    <Compile Include="Utils\Waiter.cs" />
     <Compile Include="Tests\ForwardGmail_2.cs" />
     <Compile Include="Tests\SignatureGmail_12.cs" />
     <Compile Include="Tests\StarGmail_13.cs" />
     <Compile Include="Tests\TestClass.cs" />
+    <Compile Include="Tests\VacationGmail_14.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

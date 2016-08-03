@@ -15,48 +15,8 @@ namespace WebDriverLibrary.Pages
     {
         private IWebDriver driver;
 
-
-        public SettingsPage(IWebDriver driver)
-        {
-            this.driver = driver;
-            PageFactory.InitElements(this.driver, this);
-
-            bAddEmailForForwardingButton = new Button(By.XPath("//input[@type='button' and @act='add']"), driver);
-            bNextToConfirmForwarding = new Button(By.XPath("//button[@class='J-at1-auR']"), driver);
-            bContinueButtonOnConfirmationForwardWindow = new Button(By.XPath("//input[@type='submit']"), driver);
-            bOKToConfirmForwarding = new Button(By.XPath("//button[@name='ok']"), driver);
-            tRecipient = new TextBox(By.XPath("//div[@class='PN']/input"), driver);
-            rbForwardACopyOfIncomingMail = new RadioButton(By.XPath("(//input[@type='radio' and @name='sx_em'])[2]"), driver);
-            bCreateNewFilter = new Button(By.XPath("//td[@class='rG']/span[@class='sA'][1]"), driver);
-            tFromWhoTextField = new TextBox(By.XPath("//input[@class='ZH nr aQa' ]"), driver);
-            cbHasAttachementCheckBox = new CheckBox(By.XPath("(//span[@class='w-Pv ZG']/input[1])[1]"), driver);
-            bCreateFilterButtonMovesToCreationForm = new Button(By.XPath("//div[@class='acM']"), driver);
-            cbDelete = new CheckBox(By.XPath("(//div[@class='nH lZ']/input[@type='checkbox'])[5]"), driver);
-            cbMarkAsImportantCheckBox = new CheckBox(By.XPath("(//div[@class='nH lZ']/input[@type='checkbox'])[7]"), driver);
-            bCreateFilter = new Button((By.XPath("//div[contains(text(),'Создать фильтр')]")), driver);
-            bSaveChanges = new Button(By.XPath("//button[@guidedhelpid='save_changes_button']"), driver);
-            lInstallTheme = new Link(By.XPath("//a[@class='e NvzLyc']"), driver);
-            bMyPictures = new Button(By.XPath("//div[@class='J-J5-Ji T-I T-I-ax7 a94']"), driver);
-            bFrameChangeThemeLocator = new Button((By.XPath("//div[contains(text(),'Загрузка фото')]")), driver);
-            bChooseFileFromComputer = new Button((By.XPath("//div[contains(text(),'Выберите файл на компьютере')]")), driver);
-            bChooseThemeBeach = new Button(By.XPath("//div[contains(text(),'Lake Tahoe')]"), driver);
-            rbSelectSignature = new RadioButton(By.XPath("//*[@name='sx_sg'][@value='1']"), driver);
-            rbNotSignature=new RadioButton(By.XPath("//*[@name='sx_sg'][@value='0']"), driver);
-            tbxSignature = new TextBox(By.XPath("//div[@aria-label='Подпись']"), driver);
-            // btSaveChanges = new Button(By.XPath("//button[@guidedhelpid='save_changes_button']"), driver);
-            bOk = new Button(By.XPath("//button[contains(text(),'ОК')]"), driver);
-            bDeleteEmail = new Button(By.XPath("//option[contains(text(),' nastyakylakova96@gmail.com')]"), driver);
-            cbDeleteFilter = new CheckBox(By.XPath("//input[@type='checkbox']"), driver);
-            bDeleteFilter = new Button(By.XPath("//button[contains(text(),'Удалить')]"), driver);
-            rbSelectResponderOn = new RadioButton(By.XPath("//label[contains(text(), 'Включить автоответчик')]/ancestor::td/preceding-sibling::td/input"), driver);
-            tThemeResponder = new TextBox(By.XPath("//input[@aria-label='Тема']"), driver);
-            tBodyResponder= new TextBox(By.XPath("//div[@aria-label='Автоответчик']"), driver);
-           
-    }
-
         private string urlForSettings = "https://mail.google.com/mail/#settings/";
         public string URL { get { return urlForSettings; } set { urlForSettings = value; } }
-
         public Button bAddEmailForForwardingButton { get; set; }
         public TextBox tRecipient { get; set; }
         public Button bNextToConfirmForwarding { get; set; }
@@ -84,12 +44,48 @@ namespace WebDriverLibrary.Pages
         public Button bOk { get; set; }
         public CheckBox cbDeleteFilter { get; set; }
         public Button bDeleteFilter { get; set; }
-        //  public Button btSaveChanges { get; set; }
         public RadioButton rbSelectResponderOn { get; set; }
         public TextBox tThemeResponder { get; set; }
         public TextBox tBodyResponder { get; set; }
+        public RadioButton rbSelectResponderOff { get; set; }
+        public string frame = "//iframe[@class='KA-JQ']";
+        public string themMessage = "//div[contains(text(),'не поддерживается')]";
 
+        public SettingsPage(IWebDriver driver)
+        {
+            this.driver = driver;
+            PageFactory.InitElements(this.driver, this);
 
-
+            bAddEmailForForwardingButton = new Button(By.XPath("//input[@type='button' and @act='add']"), driver);
+            bNextToConfirmForwarding = new Button(By.XPath("//button[@class='J-at1-auR']"), driver);
+            bContinueButtonOnConfirmationForwardWindow = new Button(By.XPath("//input[@type='submit']"), driver);
+            bOKToConfirmForwarding = new Button(By.XPath("//button[@name='ok']"), driver);
+            tRecipient = new TextBox(By.XPath("//div[@class='PN']/input"), driver);
+            rbForwardACopyOfIncomingMail = new RadioButton(By.XPath("(//input[@type='radio' and @name='sx_em'])[2]"), driver);
+            bCreateNewFilter = new Button(By.XPath("//td[@class='rG']/span[@class='sA'][1]"), driver);
+            tFromWhoTextField = new TextBox(By.XPath("//input[@class='ZH nr aQa' ]"), driver);
+            cbHasAttachementCheckBox = new CheckBox(By.XPath("(//span[@class='w-Pv ZG']/input[1])[1]"), driver);
+            bCreateFilterButtonMovesToCreationForm = new Button(By.XPath("//div[@class='acM']"), driver);
+            cbDelete = new CheckBox(By.XPath("(//div[@class='nH lZ']/input[@type='checkbox'])[5]"), driver);
+            cbMarkAsImportantCheckBox = new CheckBox(By.XPath("(//div[@class='nH lZ']/input[@type='checkbox'])[7]"), driver);
+            bCreateFilter = new Button((By.XPath("//div[contains(text(),'Создать фильтр')]")), driver);
+            bSaveChanges = new Button(By.XPath("//button[@guidedhelpid='save_changes_button']"), driver);
+            lInstallTheme = new Link(By.XPath("//a[@class='e NvzLyc']"), driver);
+            bMyPictures = new Button(By.XPath("//div[@class='J-J5-Ji T-I T-I-ax7 a94']"), driver);
+            bFrameChangeThemeLocator = new Button((By.XPath("//div[contains(text(),'Загрузка фото')]")), driver);
+            bChooseFileFromComputer = new Button((By.XPath("//div[contains(text(),'Выберите файл на компьютере')]")), driver);
+            bChooseThemeBeach = new Button(By.XPath("//div[contains(text(),'Lake Tahoe')]"), driver);
+            rbSelectSignature = new RadioButton(By.XPath("//*[@name='sx_sg'][@value='1']"), driver);
+            rbNotSignature = new RadioButton(By.XPath("//*[@name='sx_sg'][@value='0']"), driver);
+            tbxSignature = new TextBox(By.XPath("//div[@aria-label='Подпись']"), driver);
+            bOk = new Button(By.XPath("//button[contains(text(),'ОК')]"), driver);
+            bDeleteEmail = new Button(By.XPath("//option[contains(text(),' nastyakylakova96@gmail.com')]"), driver);
+            cbDeleteFilter = new CheckBox(By.XPath("//input[@type='checkbox']"), driver);
+            bDeleteFilter = new Button(By.XPath("//button[contains(text(),'Удалить')]"), driver);
+            rbSelectResponderOn = new RadioButton(By.XPath("//label[contains(text(), 'Включить автоответчик')]/ancestor::td/preceding-sibling::td/input"), driver);
+            tThemeResponder = new TextBox(By.XPath("//input[@aria-label='Тема']"), driver);
+            tBodyResponder = new TextBox(By.XPath("//div[@aria-label='Автоответчик']"), driver);
+            rbSelectResponderOff = new RadioButton(By.XPath("//label[contains(text(), 'Отключить автоответчик')]/ancestor::td/preceding-sibling::td/input"), driver);
+        }
     }
 }

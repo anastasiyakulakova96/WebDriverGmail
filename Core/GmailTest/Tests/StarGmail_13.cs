@@ -10,18 +10,14 @@ using Core.Utils;
 namespace GmailTest.Tests
 {
     [TestFixture]
-   public class StarGmail_13
+    public class StarGmail_13
     {
-        Logger logger;
+        private string USEREMAIL = Data.usermail;
+        private string USERPASSWORD = Data.userpassword;
 
+        Logger logger;
         StepForLoginPage stepForLogin;
         StepForMainPage stepForMainPage;
-        StemForSpamPage stepForSpamPage;
-        StepsForSettingsPage stepForSettingsPage;
-        StepForTrashPage stepForTrashPage;
-
-        private const string USEREMAIL = "anastasiyaliazhniuk@gmail.com";
-        private const string USERPASSWORD = "meniti82";
 
         [SetUp]
         public void Init()
@@ -33,9 +29,6 @@ namespace GmailTest.Tests
 
             stepForLogin = new StepForLoginPage(driver);
             stepForMainPage = new StepForMainPage(driver);
-            stepForSpamPage = new StemForSpamPage(driver);
-            stepForSettingsPage = new StepsForSettingsPage(driver);
-            stepForTrashPage = new StepForTrashPage(driver);
         }
 
         [TearDown]
@@ -51,7 +44,7 @@ namespace GmailTest.Tests
         }
 
         [Test]
-    //   [Ignore("ignore")] //13
+        //   [Ignore("ignore")] //13
         public void MarkAsStar()
         {
             logger.Log("[Test] MarkAsStar() started");
@@ -61,10 +54,9 @@ namespace GmailTest.Tests
             stepForMainPage.StarredTopMessage();
             stepForMainPage.OpenStarPage();
             Assert.IsTrue(stepForMainPage.CheckStarMessage());
-            Waiter.Wait();
+            Waiter.WaitElement();
 
             logger.Log("[Test] MarkAsStar() finished");
         }
-
     }
 }
