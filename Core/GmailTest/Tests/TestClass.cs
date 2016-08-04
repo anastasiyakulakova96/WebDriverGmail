@@ -111,7 +111,7 @@ namespace WebDriver.Tests
         }
 
         [Test]
-    [Ignore("ignore")] //4
+   // [Ignore("ignore")] //4
         public void ThemesGmail()
         {
             logger.Log("[Test] ThemesGmail() started");
@@ -147,7 +147,7 @@ namespace WebDriver.Tests
 
 
         [Test]
-     //    [Ignore("ignore")] //6
+         [Ignore("ignore")] //6
         public void ChangeUserTheme()
         {
             logger.Log("[Test] ChangeUserTheme() started");

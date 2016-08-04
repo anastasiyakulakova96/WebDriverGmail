@@ -123,8 +123,8 @@ namespace WebDriverLibrary.Pages
             this.driver = driver;
             PageFactory.InitElements(this.driver, this);
 
-           // bWriteEMail = new Button(By.XPath("//div[@class='T-I J-J5-Ji T-I-KE L3']"), driver, "bWriteEMail");
-            bWriteEMail = new Button(By.XPath("//div[@class='T-I J-J5-Ji T-I-KE L3222']"), driver, "bWriteEMail");
+          bWriteEMail = new Button(By.XPath("//div[@class='T-I J-J5-Ji T-I-KE L3']"), driver, "bWriteEMail");
+          //  bWriteEMail = new Button(By.XPath("//div[@class='T-I J-J5-Ji T-I-KE L3222']"), driver, "bWriteEMail");
             bSend = new Button(By.XPath("//div[@class = 'T-I J-J5-Ji aoO T-I-atl L3']"), driver, "bSend");
             bMark = new Button(By.XPath("//div[@class = 'asl T-I-J3 J-J5-Ji']"), driver, "bMark");
             bMyAccount = new Button(By.XPath("//*[@id='gb']/div[1]/div[1]/div[2]/div[4]/div[1]/a/span"), driver, "bMyAccount");
