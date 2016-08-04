@@ -147,6 +147,9 @@
   <data name="themVocation" xml:space="preserve">
     <value>Vacation responder</value>
   </data>
+  <data name="topicEmoji" xml:space="preserve">
+    <value>emoji</value>
+  </data>
   <data name="topicLetterWithAttech" xml:space="preserve">
     <value>letter with attech</value>
   </data>

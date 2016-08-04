@@ -18,6 +18,7 @@ namespace GmailTest.Tests
         private string USERPASSWORD3 = Data.usermail3;
         private string THEMES_FOR_VOCATION_RESPONDER = Data.themVocation;
         private string MESSAGE_FOR_VOCATION_RESPONDER = Data.messageVocation;
+        private string TOPIC_LETTER_WITH_ATTACH = Data.topicLetterWithAttech;
 
         Logger logger;
         StepForLoginPage stepForLogin;
@@ -64,7 +65,7 @@ namespace GmailTest.Tests
             Waiter.WaitElement();
             stepForMainPage.LogOutWithAddOneMoreAccount();
             stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
-            stepForMainPage.WriteALetter(USEREMAIL);
+            stepForMainPage.WriteALetter(USEREMAIL,TOPIC_LETTER_WITH_ATTACH);
             Assert.IsTrue(stepForMainPage.CheckVocationResponder());
 
             logger.Log("[Test] VacationGmail() finished");

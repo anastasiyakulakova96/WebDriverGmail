@@ -27,7 +27,7 @@ namespace WebDriverLibrary.Steps
             mainPage = new MainPage(driver);
         }
 
-        public void WriteALetter(string addressee)
+        public void WriteALetter(string addressee,string topic)
         {
             //MainPage mainPage = new MainPage(driver);
             mainPage.bWriteEMail.Click();
@@ -50,18 +50,18 @@ namespace WebDriverLibrary.Steps
             mainPage.bCloseWindowMessage.Click();
         }
 
-        public void WriteLetterWithEmoticonIcon(string addressee)
+        public void WriteLetterWithEmoticonIcon(string addressee,string topic)
         {
             // MainPage mainPage = new MainPage(driver);
             mainPage.bWriteEMail.Click();
             mainPage.tRecipient.SetText(addressee);
-            mainPage.tTopic.SetText("emoji");
+            mainPage.tTopic.SetText(topic);
             mainPage.bEmojiButton.Click();
             mainPage.bSecondEmoji.Click();
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath("//button[@string='1f600']")));
+            wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(mainPage.firstEmoji)));
             mainPage.bEmoji1.Click();
-            wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath("//button[@string='1f601']")));
+            wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(mainPage.secondEmoji)));
             mainPage.bEmoji2.Click();
             Waiter.WaitElement();
             mainPage.bSend.Click();

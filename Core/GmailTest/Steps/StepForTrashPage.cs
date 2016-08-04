@@ -32,9 +32,9 @@ namespace GmailTest.Steps
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@aria-label='Отмечено как важное потому, что подходит под условия одного из ваших фильтров важности.']")));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(trashPage.important)));
 
-            if (driver.FindElements(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")).Count != 0 && driver.FindElements(By.XPath("//div[@aria-label='Отмечено как важное потому, что подходит под условия одного из ваших фильтров важности.']")).Count != 0)
+            if (driver.FindElements(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")).Count != 0 && driver.FindElements(By.XPath(trashPage.important)).Count != 0)
             {
                 return true;
             }

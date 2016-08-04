@@ -151,6 +151,15 @@ namespace GmailTest {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to emoji.
+        /// </summary>
+        internal static string topicEmoji {
+            get {
+                return ResourceManager.GetString("topicEmoji", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to letter with attech.
         /// </summary>
         internal static string topicLetterWithAttech {

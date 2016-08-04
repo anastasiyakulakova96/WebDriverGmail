@@ -29,6 +29,7 @@ namespace WebDriver.Tests
         private string SIGNATURE = Data.signature;
         private string THEMES_FOR_VOCATION_RESPONDER = Data.themVocation;
         private string MESSAGE_FOR_VOCATION_RESPONDER = Data.messageVocation;
+        private string TOPIC_EMOGI = Data.topicEmoji;
 
         Logger logger;
         StepForLoginPage stepForLogin;
@@ -70,7 +71,7 @@ namespace WebDriver.Tests
 
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL2, USERPASSWORD2);
-            stepForMainPage.WriteALetter(USEREMAIL);
+            stepForMainPage.WriteALetter(USEREMAIL,TOPIC_LETTER_WITH_ATTACH);
             Waiter.WaitElement();
             stepForMainPage.LogOutWithAddOneMoreAccount();
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
@@ -78,7 +79,7 @@ namespace WebDriver.Tests
             Waiter.WaitElement();
             stepForMainPage.LogOut();
             stepForLogin.LoginGmail(USERPASSWORD2);
-            stepForMainPage.WriteALetter(USEREMAIL);
+            stepForMainPage.WriteALetter(USEREMAIL,TOPIC_LETTER_WITH_ATTACH);
             Waiter.WaitElement();
             stepForMainPage.LogOut();
             stepForLogin.LoginGmailAsSecondUser(USERPASSWORD);
@@ -130,7 +131,7 @@ namespace WebDriver.Tests
 
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
-            stepForMainPage.WriteLetterWithEmoticonIcon(USEREMAIL);
+            stepForMainPage.WriteLetterWithEmoticonIcon(USEREMAIL, TOPIC_EMOGI);
             Waiter.WaitElement();
             stepForMainPage.LogOutWithAddOneMoreAccount();
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);

@@ -13,7 +13,7 @@ namespace WebDriverLibrary.Steps
     {
         public static void WaitElement()
         {
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(10000);
         }     
     }
 }

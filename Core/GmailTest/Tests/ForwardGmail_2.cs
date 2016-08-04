@@ -80,7 +80,7 @@ namespace GmailTest.Tests
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
             stepForMainPage.WriteALetterWithAttach(USEREMAIL2, PATH_TO_SMALL_FILE);
             Waiter.WaitElement();
-            stepForMainPage.WriteALetter(USEREMAIL2);
+            stepForMainPage.WriteALetter(USEREMAIL2,TOPIC_LETTER_WITH_ATTACH);
             Waiter.WaitElement();
             stepForMainPage.LogOut();
             Waiter.WaitElement();

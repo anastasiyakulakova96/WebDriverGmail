@@ -53,7 +53,8 @@ namespace WebDriverLibrary.Pages
         public Button bStar { get; set; }
         public Label lStarTitle { get; set; }
         public Button bNotStar { get; set; }
-
+        public string firstEmoji = "//button[@string='1f600']";
+        public string secondEmoji = "//button[@string='1f601']";
         public MainPage(IWebDriver driver)
         {
             this.driver = driver;
