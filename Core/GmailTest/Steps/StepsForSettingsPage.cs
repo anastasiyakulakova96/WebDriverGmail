@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using WebDriverLibrary.Pages;
 using GmailTest;
+using System.Windows.Forms;
 
 namespace WebDriverLibrary.Steps
 {
@@ -94,12 +95,16 @@ namespace WebDriverLibrary.Steps
             driver.SwitchTo().Frame(driver.FindElement(By.XPath(settingPage.Frame)));
             settingPage.bFrameChangeThemeLocator.Click();
             settingPage.bChooseFileFromComputer.Click();
-            IAutoItX3 autoIT = new AutoItX3();
-            autoIT.WinActivate("File Upload");
-            autoIT.Send(path);
-            Thread.Sleep(7000);
-            autoIT.Send("{ENTER}");
-            Thread.Sleep(7000);
+            SendKeys.SendWait(path);
+            Thread.Sleep(1000);
+            SendKeys.SendWait("{ENTER}");
+            Thread.Sleep(1000);
+            //IAutoItX3 autoIT = new AutoItX3();
+            //autoIT.WinActivate("File Upload");
+            //autoIT.Send(path);
+            //Thread.Sleep(7000);
+            //autoIT.Send("{ENTER}");
+            //Thread.Sleep(7000);
 
         }
 

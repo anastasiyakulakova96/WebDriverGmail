@@ -10,6 +10,7 @@ using AutoItX3Lib;
 using System.Threading;
 using OpenQA.Selenium.Support.UI;
 using GmailTest;
+using System.Windows.Forms;
 
 namespace WebDriverLibrary.Steps
 {
@@ -69,12 +70,16 @@ namespace WebDriverLibrary.Steps
             mainPage.tRecipient.SetText(addressee);
             mainPage.tTopic.SetText(topic);
             mainPage.bAttachFile.Click();
-            IAutoItX3 autoIT = new AutoItX3();
-            autoIT.WinActivate("File Upload");
-            autoIT.Send(path);
-            Thread.Sleep(7000);
-            autoIT.Send("{ENTER}");
-            Thread.Sleep(7000);
+            SendKeys.SendWait(path);
+            Thread.Sleep(1000);
+            SendKeys.SendWait("{ENTER}");
+            Thread.Sleep(1000);
+            //IAutoItX3 autoIT = new AutoItX3();
+            //autoIT.WinActivate("File Upload");
+            //autoIT.Send(path);
+            //Thread.Sleep(7000);
+            //autoIT.Send("{ENTER}");
+            //Thread.Sleep(7000);
             mainPage.bSend.Click();
         }
         public void WriteALetterWithAttach2(string addressee, string path, string topic)
@@ -83,12 +88,10 @@ namespace WebDriverLibrary.Steps
             mainPage.tRecipient.SetText(addressee);
             mainPage.tTopic.SetText(topic);
             mainPage.bAttachFile.Click();
-            IAutoItX3 autoIT = new AutoItX3();
-            autoIT.WinActivate("File Upload");
-            autoIT.Send(path);
-            Thread.Sleep(7000);
-            autoIT.Send("{ENTER}");
-            Thread.Sleep(7000);
+            SendKeys.SendWait(path);
+            Thread.Sleep(1000);
+            SendKeys.SendWait("{ENTER}");
+            Thread.Sleep(1000);
         }
 
         public void LogOutWithAddOneMoreAccount()
