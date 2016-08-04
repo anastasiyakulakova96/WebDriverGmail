@@ -23,19 +23,16 @@ namespace WebDriverLibrary.Steps
 
         public void GoToSpam(string spamFolder)
         {
-            //SpamPage spamPage = new SpamPage(driver);
             spamPage.tInputField.SetText(spamFolder);
             spamPage.bSearchSpamFolder.Click();
         }
 
         public bool AssertSpam(string userEMail)
         {
-           // SpamPage spamPage = new SpamPage(driver);
             return spamPage.FindSpamSender().Equals(userEMail);
         }
         public void MarkLetterNotSpam()
         {
-           // SpamPage spamPage = new SpamPage(driver);
             Waiter.WaitElement();
             IWebElement element = driver.FindElement(By.XPath(spamPage.FirstCheckBox));
             spamPage.cFirstCheckBox.Click();
@@ -44,7 +41,6 @@ namespace WebDriverLibrary.Steps
 
         public void OpenLetterAndMarkNotSpam()
         {
-           // SpamPage spamPage = new SpamPage(driver);
             Waiter.WaitElement();
             spamPage.bFirstMessage.Click();
             spamPage.bOK.Click();

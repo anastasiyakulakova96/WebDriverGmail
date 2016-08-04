@@ -20,7 +20,7 @@ namespace WebDriverLibrary.Steps
         public IWebDriver driver;
         SettingsPage settingPage;
 
-        private  string FILTERPAGE = Data.filterPage;
+        private string FILTERPAGE = Data.filterPage;
 
         public StepsForSettingsPage(IWebDriver driver)
         {
@@ -30,7 +30,6 @@ namespace WebDriverLibrary.Steps
 
         public void SetForwardingToUserInSetting(string addressee)
         {
-            //SettingsPage settingPage = new SettingsPage(driver);
             settingPage.bAddEmailForForwardingButton.Click();
             settingPage.tRecipient.SetText(addressee);
             settingPage.bNextToConfirmForwarding.Click();
@@ -38,29 +37,27 @@ namespace WebDriverLibrary.Steps
 
         public void SentEmail()
         {
-            // SettingsPage settingPage = new SettingsPage(driver);
-            Driver.GetDriver().SwitchTo().Window(Driver.GetDriver().WindowHandles.Last());
+            //Driver.GetDriver().SwitchTo().Window(Driver.GetDriver().WindowHandles.Last());
+            driver.SwitchTo().Window(driver.WindowHandles.Last());
             settingPage.bContinueButtonOnConfirmationForwardWindow.Click();
-            Driver.GetDriver().SwitchTo().Window(Driver.GetDriver().WindowHandles.First());
+            driver.SwitchTo().Window(driver.WindowHandles.First());
+            //Driver.GetDriver().SwitchTo().Window(Driver.GetDriver().WindowHandles.First());
             settingPage.bOKToConfirmForwarding.Click();
         }
 
         public void ForwardACopyOfIncomingMailTo()
         {
-            //SettingsPage settingPage = new SettingsPage(driver);
             settingPage.rbForwardACopyOfIncomingMail.Click();
             settingPage.bSaveChanges.Click();
         }
 
         public void CreateNewFilter()
         {
-            //  SettingsPage settingPage = new SettingsPage(driver);
             settingPage.bCreateNewFilter.Click();
         }
 
         public void DeleteFilter()
         {
-            // SettingsPage settingPage = new SettingsPage(driver);
             settingPage.cbDeleteFilter.Click();
             settingPage.bDeleteFilter.Click();
             settingPage.bOk.Click();
@@ -68,14 +65,12 @@ namespace WebDriverLibrary.Steps
 
         public void OpenFilterPage()
         {
-            // SettingsPage settingPage = new SettingsPage(driver);
             driver.Navigate().GoToUrl(settingPage.URL + FILTERPAGE);
         }
 
 
         public void FillInNewFilterFrom(string userName)
         {
-            // SettingsPage settingPage = new SettingsPage(driver);
             settingPage.tFromWhoTextField.SetText(userName);
             settingPage.cbHasAttachementCheckBox.Click();
             settingPage.bCreateFilterButtonMovesToCreationForm.Click();
@@ -87,7 +82,6 @@ namespace WebDriverLibrary.Steps
 
         public void ChangeThemeCustomImage(string path)
         {
-            // SettingsPage settingPage = new SettingsPage(driver);
             settingPage.lInstallTheme.Click();
             Waiter.WaitElement();
             settingPage.bMyPictures.Click();
@@ -110,7 +104,6 @@ namespace WebDriverLibrary.Steps
 
         public void ChooseThemes()
         {
-            //SettingsPage settingPage = new SettingsPage(driver);
             settingPage.lInstallTheme.Click();
             Waiter.WaitElement();
             settingPage.bChooseThemeBeach.Click();
@@ -133,7 +126,6 @@ namespace WebDriverLibrary.Steps
 
         public void EnterSignature(string signature)
         {
-            // SettingsPage settingPage = new SettingsPage(driver);
             settingPage.rbSelectSignature.Click();
             Waiter.WaitElement();
             settingPage.tbxSignature.ClearText();
@@ -144,7 +136,6 @@ namespace WebDriverLibrary.Steps
 
         public void DeleteSignature()
         {
-            // SettingsPage settingPage = new SettingsPage(driver);
             settingPage.tbxSignature.ClearText();
             settingPage.rbNotSignature.Click();
             settingPage.bSaveChanges.Click();
@@ -152,7 +143,6 @@ namespace WebDriverLibrary.Steps
 
         public void DeleteEmail()
         {
-            // SettingsPage settingPage = new SettingsPage(driver);
             settingPage.bDeleteEmail.Click();
             Waiter.WaitElement();
             settingPage.bOk.Click();
@@ -160,7 +150,6 @@ namespace WebDriverLibrary.Steps
 
         public void VacationResponderOn(string themes, string text)
         {
-            // SettingsPage settingPage = new SettingsPage(driver);
             settingPage.rbSelectResponderOn.Click();
             settingPage.tThemeResponder.ClearText();
             settingPage.tThemeResponder.SetText(themes);
@@ -172,7 +161,6 @@ namespace WebDriverLibrary.Steps
 
         public void VacationResponderOff()
         {
-            // SettingsPage settingPage = new SettingsPage(driver);
             settingPage.rbSelectResponderOff.Click();
             settingPage.bSaveChanges.Click();
         }

@@ -32,6 +32,6 @@ C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.Data.resources
 C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.csproj.GenerateResource.Cache
 C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.dll
 C:\WebDriverGmail\Core\GmailTest\obj\Debug\GmailTest.pdb
-C:\WebDriverGmail\Core\GmailTest\bin\Debug\DSC_8250.jpg
-C:\WebDriverGmail\Core\GmailTest\bin\Debug\1.rar
-C:\WebDriverGmail\Core\GmailTest\bin\Debug\свадьба.xlsx
+C:\WebDriverGmail\Core\GmailTest\bin\Debug\Material\DSC_8250.jpg
+C:\WebDriverGmail\Core\GmailTest\bin\Debug\Material\1.rar
+C:\WebDriverGmail\Core\GmailTest\bin\Debug\Material\свадьба.xlsx

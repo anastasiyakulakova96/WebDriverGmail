@@ -22,16 +22,12 @@ namespace GmailTest.Tests
         private string SETTINGPAGE = Data.settingPage;
         private string TOPIC_LETTER_WITH_ATTACH = Data.topicLetterWithAttech;
         private string TOPIC_LETTER_WITHOUT_ATTACH = Data.topicLetterWithoutAttech;
-        //private string PATH_TO_SMALL_FILE = Data.pathToSmallFile;
-        //private string PATH_TO_BIG_FILE = Data.pathToBigFile;
-        //private string PATH_TO_SMALL_FILE2 = Data.pathToSmallFileForCheck;
         private string SIGNATURE = Data.signature;
         private string THEMES_FOR_VOCATION_RESPONDER = Data.themVocation;
         private string MESSAGE_FOR_VOCATION_RESPONDER = Data.messageVocation;
-             public string debugPath = TestContext.CurrentContext.TestDirectory;
-
-
-
+        public string debugPath = TestContext.CurrentContext.TestDirectory;
+        public string browser = Data.browser;
+        public string pathToLogFile;
 
         Logger logger;
         StepForLoginPage stepForLogin;
@@ -42,10 +38,11 @@ namespace GmailTest.Tests
         [SetUp]
         public void Init()
         {
-            logger = Logger.GetLogger(typeof(ForwardGmail_2));
+            pathToLogFile = debugPath + Data.nameLogFile;
+            logger = Logger.GetLogger(typeof(ForwardGmail_2), pathToLogFile);
             logger.Log("[SetUp] Init()");
 
-            IWebDriver driver = Driver.GetDriver();
+            IWebDriver driver = Driver.GetDriver(browser);
 
             stepForLogin = new StepForLoginPage(driver);
             stepForMainPage = new StepForMainPage(driver);
@@ -55,12 +52,11 @@ namespace GmailTest.Tests
         }
 
         [Test]
-    //  [Ignore("ignore")] //2
+        //  [Ignore("ignore")] //2
         public void ForwardGmailTest()
         {
             logger.Log("[Test] ForwardGmailTest() started");
 
-           
             string pathToSmallFile = debugPath + "\\" + Data.nameSmallFile;
 
             stepForLogin.OpenStartPage();
@@ -86,7 +82,7 @@ namespace GmailTest.Tests
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
             stepForMainPage.WriteALetterWithAttach(USEREMAIL2, pathToSmallFile, TOPIC_LETTER_WITH_ATTACH);
             Waiter.WaitElement();
-            stepForMainPage.WriteALetter(USEREMAIL2,TOPIC_LETTER_WITHOUT_ATTACH);
+            stepForMainPage.WriteALetter(USEREMAIL2, TOPIC_LETTER_WITHOUT_ATTACH);
             Waiter.WaitElement();
             stepForMainPage.LogOut();
             Waiter.WaitElement();
@@ -101,18 +97,6 @@ namespace GmailTest.Tests
             stepForLogin.LoginGmailAsSecondUser(USERPASSWORD3);
             Waiter.WaitElement();
             Assert.IsTrue(stepForMainPage.FindEmailInInbox(TOPIC_LETTER_WITHOUT_ATTACH));
-
-            //Waiter.WaitElement();
-            //stepForMainPage.LogOut();
-            //Waiter.WaitElement();
-            //stepForLogin.LoginGmail(USERPASSWORD2);
-            //Waiter.WaitElement();
-            //stepForMainPage.OpenSettings();
-            //stepForSettingsPage.DeleteEmail();
-            //Waiter.WaitElement();
-            //stepForSettingsPage.OpenFilterPage();
-            //Waiter.WaitElement();
-            //stepForSettingsPage.DeleteFilter();
 
             logger.Log("[Test] ForwardGmailTest() finished");
         }

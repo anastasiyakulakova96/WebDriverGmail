@@ -15,6 +15,9 @@ namespace GmailTest.Tests
         private string USEREMAIL = Data.usermail;
         private string USERPASSWORD = Data.userpassword;
         private string SIGNATURE = Data.signature;
+        public string browser = Data.browser;
+        public string pathToLogFile;
+        public string debugPath = TestContext.CurrentContext.TestDirectory;
 
         Logger logger;
         StepForLoginPage stepForLogin;
@@ -24,10 +27,11 @@ namespace GmailTest.Tests
         [SetUp]
         public void Init()
         {
-            logger = Logger.GetLogger(typeof(SignatureGmail_12));
+            pathToLogFile = debugPath + Data.nameLogFile;
+            logger = Logger.GetLogger(typeof(SignatureGmail_12), pathToLogFile);
             logger.Log("[SetUp] Init()");
 
-            IWebDriver driver = Driver.GetDriver();
+            IWebDriver driver = Driver.GetDriver(browser);
 
             stepForLogin = new StepForLoginPage(driver);
             stepForMainPage = new StepForMainPage(driver);
@@ -48,7 +52,7 @@ namespace GmailTest.Tests
         }
 
         [Test]
-    //  [Ignore("ignore")] //12
+        //  [Ignore("ignore")] //12
         public void CheckingSignature()
         {
             logger.Log("[Test] CheckingSignature() started");

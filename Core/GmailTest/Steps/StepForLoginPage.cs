@@ -10,25 +10,20 @@ namespace WebDriver.Steps
 {
     public class StepForLoginPage : AbstractPage
     {
-
-        IWebDriver driver;
         LoginPage loginPage;
 
-        public StepForLoginPage(IWebDriver driver)
+        public StepForLoginPage(IWebDriver driver) : base(driver)
         {
-            this.driver = driver;
             loginPage = new LoginPage(driver);
         }
 
         public override void OpenStartPage()
         {
-           // LoginPage loginPage = new LoginPage(driver);
             driver.Navigate().GoToUrl(loginPage.URL);
         }
 
         public void LoginGmail(string userEmail, string password)
         {
-            // LoginPage loginPage = new LoginPage(driver);
             loginPage.tInputEmailField.SetText(userEmail);
             loginPage.bNext.Click();
             loginPage.tinputPasswordField.SetText(password);
@@ -37,7 +32,6 @@ namespace WebDriver.Steps
 
         public void LoginGmail(string password)
         {
-           // LoginPage loginPage = new LoginPage(driver);
             loginPage.bFirstUser.Click();
             loginPage.tinputPasswordField.SetText(password);
             loginPage.bEnter.Click();
@@ -45,12 +39,9 @@ namespace WebDriver.Steps
 
         public void LoginGmailAsSecondUser(string password)
         {
-          //  LoginPage loginPage = new LoginPage(driver);
             loginPage.bSecondUser.Click();
             loginPage.tinputPasswordField.SetText(password);
             loginPage.bEnter.Click();
         }
-
-        
     }
 }

@@ -1,0 +1,44 @@
+TestClass: 
+04.08.2016 22:40:30: [SetUp] Init()
+04.08.2016 22:40:35: [Test] BigFileGmail() started
+04.08.2016 22:40:37: Set text: By.Id: Email
+04.08.2016 22:40:37: name: bNext click: By.Id: next
+04.08.2016 22:40:38: Set text: By.Id: Passwd
+04.08.2016 22:40:39: name: bEnter click: By.Id: signIn
+04.08.2016 22:40:49: TimeoutException Element [Button] not found
+04.08.2016 22:41:00: [TearDown] CleanUp()
+TestClass: 
+04.08.2016 22:41:01: [SetUp] Init()
+04.08.2016 22:41:04: [Test] ThemesGmail() started
+04.08.2016 22:41:06: Set text: By.Id: Email
+04.08.2016 22:41:06: name: bNext click: By.Id: next
+04.08.2016 22:41:07: Set text: By.Id: Passwd
+04.08.2016 22:41:08: name: bEnter click: By.Id: signIn
+04.08.2016 22:41:13: name: lInstallTheme click: By.XPath: //a[@class='e NvzLyc']
+04.08.2016 22:41:23: name: bMyPictures click: By.XPath: //div[@class='J-J5-Ji T-I T-I-ax7 a94']
+04.08.2016 22:41:33: name: bFrameChangeThemeLocator click: By.XPath: //div[contains(text(),'Загрузка фото')]
+04.08.2016 22:41:34: name: bChooseFileFromComputer click: By.XPath: //div[contains(text(),'Выберите файл на компьютере')]
+04.08.2016 22:41:36: [Test] ThemesGmail() finished
+04.08.2016 22:41:36: [TearDown] CleanUp()
+TestClass: 
+04.08.2016 22:42:00: [SetUp] Init()
+04.08.2016 22:42:05: [Test] BigFileGmail() started
+04.08.2016 22:42:07: Set text: By.Id: Email
+04.08.2016 22:42:07: name: bNext click: By.Id: next
+04.08.2016 22:42:08: Set text: By.Id: Passwd
+04.08.2016 22:42:09: name: bEnter click: By.Id: signIn
+04.08.2016 22:42:19: TimeoutException Element [Button] not found
+04.08.2016 22:42:29: [TearDown] CleanUp()
+TestClass: 
+04.08.2016 22:42:30: [SetUp] Init()
+04.08.2016 22:42:34: [Test] ThemesGmail() started
+04.08.2016 22:42:36: Set text: By.Id: Email
+04.08.2016 22:42:36: name: bNext click: By.Id: next
+04.08.2016 22:42:37: Set text: By.Id: Passwd
+04.08.2016 22:42:38: name: bEnter click: By.Id: signIn
+04.08.2016 22:42:43: name: lInstallTheme click: By.XPath: //a[@class='e NvzLyc']
+04.08.2016 22:42:53: name: bMyPictures click: By.XPath: //div[@class='J-J5-Ji T-I T-I-ax7 a94']
+04.08.2016 22:43:04: name: bFrameChangeThemeLocator click: By.XPath: //div[contains(text(),'Загрузка фото')]
+04.08.2016 22:43:04: name: bChooseFileFromComputer click: By.XPath: //div[contains(text(),'Выберите файл на компьютере')]
+04.08.2016 22:43:06: [Test] ThemesGmail() finished
+04.08.2016 22:43:06: [TearDown] CleanUp()

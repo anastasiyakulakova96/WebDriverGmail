@@ -19,7 +19,6 @@ C:\WebDriverGmail\Core\Core\bin\Debug\WebDriver.Support.dll
 C:\WebDriverGmail\Core\Core\bin\Debug\nunit.framework.xml
 C:\WebDriverGmail\Core\Core\bin\Debug\WebDriver.xml
 C:\WebDriverGmail\Core\Core\bin\Debug\WebDriver.Support.xml
-C:\WebDriverGmail\Core\Core\obj\Debug\Core.Data.resources
-C:\WebDriverGmail\Core\Core\obj\Debug\Core.csproj.GenerateResource.Cache
 C:\WebDriverGmail\Core\Core\obj\Debug\Core.dll
 C:\WebDriverGmail\Core\Core\obj\Debug\Core.pdb
+C:\WebDriverGmail\Core\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache

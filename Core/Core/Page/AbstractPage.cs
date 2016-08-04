@@ -4,11 +4,17 @@ namespace Core.Page
 {
     public abstract class AbstractPage
     {
+        protected IWebDriver driver;
+        public AbstractPage(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
         public abstract void OpenStartPage();
 
         public bool IsElementPresent(By locator)
         {
-            return Core.Driver.Driver.CreatDriver().FindElements(locator).Count > 0;
+            return driver.FindElements(locator).Count > 0;
         }
 
     }

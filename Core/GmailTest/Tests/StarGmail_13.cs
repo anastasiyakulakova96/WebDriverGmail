@@ -14,6 +14,9 @@ namespace GmailTest.Tests
     {
         private string USEREMAIL = Data.usermail;
         private string USERPASSWORD = Data.userpassword;
+        public string browser = Data.browser;
+        public string pathToLogFile;
+        public string debugPath = TestContext.CurrentContext.TestDirectory;
 
         Logger logger;
         StepForLoginPage stepForLogin;
@@ -22,10 +25,11 @@ namespace GmailTest.Tests
         [SetUp]
         public void Init()
         {
-            logger = Logger.GetLogger(typeof(StarGmail_13));
+            pathToLogFile = debugPath + Data.nameLogFile;
+            logger = Logger.GetLogger(typeof(StarGmail_13), pathToLogFile);
             logger.Log("[SetUp] Init()");
 
-            IWebDriver driver = Driver.GetDriver();
+            IWebDriver driver = Driver.GetDriver(browser);
 
             stepForLogin = new StepForLoginPage(driver);
             stepForMainPage = new StepForMainPage(driver);

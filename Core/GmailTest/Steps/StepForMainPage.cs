@@ -160,9 +160,11 @@ namespace WebDriverLibrary.Steps
         {
             mainPage.bFirstMessage.Click();
             mainPage.lForward.Click();
-            Driver.GetDriver().SwitchTo().Window(Driver.GetDriver().WindowHandles.Last());
+            driver.SwitchTo().Window(driver.WindowHandles.Last());
+            //  Driver.GetDriver().SwitchTo().Window(Driver.GetDriver().WindowHandles.Last());
             mainPage.confirmButtonInNewTab.Click();
-            Driver.GetDriver().SwitchTo().Window(Driver.GetDriver().WindowHandles.First());
+            driver.SwitchTo().Window(driver.WindowHandles.First());
+            //Driver.GetDriver().SwitchTo().Window(Driver.GetDriver().WindowHandles.First());
         }
 
         public void OpenInbox()
@@ -173,12 +175,8 @@ namespace WebDriverLibrary.Steps
 
         public bool FindEmailInInbox(String topicLine)
         {
-            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")));
-            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(mainPage.NotImpotant)));
-
             if (driver.FindElements(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")).Count != 0
-                && driver.FindElements(By.XPath(mainPage.NotImpotant)).Count != 0)
+      && driver.FindElements(By.XPath(mainPage.NotImpotant)).Count != 0)
             {
                 return true;
             }
@@ -190,8 +188,6 @@ namespace WebDriverLibrary.Steps
 
         public bool CheckPresenceOfAlertForFileTooBig()
         {
-            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(mainPage.BigFileAlert)));
             if (driver.FindElements(By.XPath(mainPage.BigFileAlert)).Count != 0)
             {
                 return true;
@@ -204,8 +200,6 @@ namespace WebDriverLibrary.Steps
 
         public bool CheckEmojiInEmailBody()
         {
-            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(mainPage.EmojiEmailBody)));
             Waiter.WaitElement(10000);
             if (driver.FindElements(By.XPath(mainPage.EmojiEmailBody)).Count != 0)
             {
@@ -245,8 +239,6 @@ namespace WebDriverLibrary.Steps
         }
         public bool CheckStarMessage()
         {
-            // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            // wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(mainPage.StarMessage)));
             if (driver.FindElements(By.XPath(mainPage.StarMessage)).Count != 0)
             {
                 return true;
@@ -259,8 +251,6 @@ namespace WebDriverLibrary.Steps
 
         public bool CheckVocationResponder()
         {
-            //  WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            // wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//b[contains(text(),'Vacation responder')]")));
             Waiter.WaitElement(50000);
 
             if (driver.FindElements(By.XPath(mainPage.VocationResponder)).Count() != 0)

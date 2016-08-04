@@ -23,17 +23,12 @@ namespace GmailTest.Steps
 
         public void OpenTrash()
         {
-          //  TrashPage trashPage = new TrashPage(driver);
             trashPage.tSerchBar.SetText("in:trash");
             trashPage.bSearch.Click();
         }
 
         public bool FindEmailInTrash(String topicLine)
         {
-            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")));
-            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(trashPage.Important)));
-
             if (driver.FindElements(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")).Count != 0 && driver.FindElements(By.XPath(trashPage.Important)).Count != 0)
             {
                 return true;

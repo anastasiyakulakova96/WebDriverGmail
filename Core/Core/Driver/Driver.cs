@@ -8,31 +8,22 @@ namespace Core.Driver
 {
     public class Driver
     {
-        private static IWebDriver _driver = CreatDriver();
+        private static IWebDriver _driver;
 
         private Driver() { }
 
-        public static IWebDriver GetDriver()
+        public static IWebDriver GetDriver(string _browser)
         {
-            //_driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(3));
-            //_driver.Manage().Window.Maximize();
-            if(_driver == null)
+            if (_driver == null)
             {
-                _driver = CreatDriver();
+                _driver = CreatDriver(_browser);
             }
             return _driver;
         }
 
 
-        public static IWebDriver CreatDriver()
+        public static IWebDriver CreatDriver(string _browser)
         {
-            string _browser = Data.browser;
-
-            //FirefoxProfile fp = new FirefoxProfile();
-            //fp.SetPreference("browser.startup.homepage", "about:blank");
-            //fp.SetPreference("startup.homepage_welcome_url", "about:blank");
-            //fp.SetPreference("startup.homepage_welcome_url.additional", "about:blank");
-
             switch (_browser)
             {
                 case "Firefox":

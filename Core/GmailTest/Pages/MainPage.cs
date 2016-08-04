@@ -53,7 +53,7 @@ namespace WebDriverLibrary.Pages
         public Button bStar { get; set; }
         public Label lStarTitle { get; set; }
         public Button bNotStar { get; set; }
-      
+
         public string FirstEmoji
         {
             get
@@ -79,7 +79,7 @@ namespace WebDriverLibrary.Pages
         {
             get
             {
-              return  "in:inbox";
+                return "in:inbox";
             }
         }
         public string NotImpotant
@@ -123,8 +123,7 @@ namespace WebDriverLibrary.Pages
             this.driver = driver;
             PageFactory.InitElements(this.driver, this);
 
-          bWriteEMail = new Button(By.XPath("//div[@class='T-I J-J5-Ji T-I-KE L3']"), driver, "bWriteEMail");
-          //  bWriteEMail = new Button(By.XPath("//div[@class='T-I J-J5-Ji T-I-KE L3222']"), driver, "bWriteEMail");
+            bWriteEMail = new Button(By.XPath("//div[@class='T-I J-J5-Ji T-I-KE L3']"), driver, "bWriteEMail");
             bSend = new Button(By.XPath("//div[@class = 'T-I J-J5-Ji aoO T-I-atl L3']"), driver, "bSend");
             bMark = new Button(By.XPath("//div[@class = 'asl T-I-J3 J-J5-Ji']"), driver, "bMark");
             bMyAccount = new Button(By.XPath("//*[@id='gb']/div[1]/div[1]/div[2]/div[4]/div[1]/a/span"), driver, "bMyAccount");
@@ -148,7 +147,7 @@ namespace WebDriverLibrary.Pages
             bFirstMessage = new Button(By.XPath("//span[@email='forwarding-noreply@google.com']"), driver, "bFirstMessage");
             lForward = new Link(By.XPath("(//a[@target='_blank' and @rel='noreferrer'])[1]"), driver, "lForward");
             bEmojiButton = new Button(By.XPath("//div[@class='QT aaA aMZ']"), driver, "bEmojiButton");
-            bEmoji1 = new Button(By.XPath("//button[@string='1f600']"), driver," bEmoji1");
+            bEmoji1 = new Button(By.XPath("//button[@string='1f600']"), driver, " bEmoji1");
             bEmoji2 = new Button(By.XPath("//button[@string='1f601']"), driver, "bEmoji2");
             bSecondEmoji = new Button(By.XPath("//button[@title='Эмоции']"), driver, "bSecondEmoji");
             bNotASpam = new Button((By.XPath("//div[contains(text(),'Не спам')]")), driver, "bNotASpam");

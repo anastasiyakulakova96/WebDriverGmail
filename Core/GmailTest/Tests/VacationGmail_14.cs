@@ -21,6 +21,9 @@ namespace GmailTest.Tests
         private string THEMES_FOR_VOCATION_RESPONDER = Data.themVocation;
         private string MESSAGE_FOR_VOCATION_RESPONDER = Data.messageVocation;
         private string TOPIC_LETTER_WITHOUT_ATTACH = Data.topicLetterWithoutAttech;
+        public string browser = Data.browser;
+        public string pathToLogFile;
+        public string debugPath = TestContext.CurrentContext.TestDirectory;
 
         Logger logger;
         StepForLoginPage stepForLogin;
@@ -30,10 +33,11 @@ namespace GmailTest.Tests
         [SetUp]
         public void Init()
         {
-            logger = Logger.GetLogger(typeof(VacationGmail_14));
+            pathToLogFile = debugPath + Data.nameLogFile;
+            logger = Logger.GetLogger(typeof(VacationGmail_14), pathToLogFile);
             logger.Log("[SetUp] Init()");
 
-            IWebDriver driver = Driver.GetDriver();
+            IWebDriver driver = Driver.GetDriver(browser);
 
             stepForLogin = new StepForLoginPage(driver);
             stepForMainPage = new StepForMainPage(driver);

@@ -70,7 +70,7 @@
     <Compile Include="Pages\SpamPage.cs" />
     <Compile Include="Pages\TrashPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services.cs" />
+    <Compile Include="Utils\Services.cs" />
     <Compile Include="Steps\StemForSpamPage.cs" />
     <Compile Include="Steps\StepForLoginPage.cs" />
     <Compile Include="Steps\StepForMainPage.cs" />
@@ -87,11 +87,11 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="1.rar">
+    <None Include="Material\1.rar">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="свадьба.xlsx">
+    <None Include="Material\свадьба.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -119,7 +119,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DSC_8250.jpg">
+    <Content Include="Material\DSC_8250.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
