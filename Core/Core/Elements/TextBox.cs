@@ -1,11 +1,13 @@
 ﻿using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using Core.Utils;
 
 namespace Core.Elements
 {
     public class TextBox : Element
     {
+        Logger logger;
         public TextBox(By by, IWebDriver driver) : base(by, driver)
         {
 
@@ -13,10 +15,12 @@ namespace Core.Elements
 
         public bool SetText(String text)
         {
+
             IWebElement element = null;
             if (TryFindElement(out element))
             {
                 element.SendKeys(text);
+               // logger.Log("Set text: "+by);
                 return true;
             }
             return false;
@@ -32,7 +36,7 @@ namespace Core.Elements
             IWebElement element = null;
             if (TryFindElement(out element))
             {
-                
+               // logger.Log("Text of elements : " + by);
                 return element.Text;
             }
             return null;
@@ -43,7 +47,7 @@ namespace Core.Elements
             IWebElement element = null;
             if (TryFindElement(out element))
             {
-
+               // logger.Log("Clear text: " + by);
                 element.Clear();
             }
             else

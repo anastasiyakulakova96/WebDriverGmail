@@ -96,7 +96,7 @@ namespace WebDriver.Tests
      //  [Ignore("ignore")] //3
         public void BigFileGmail()
         {
-            logger.Log("[Test] SpamGmail() started");
+            logger.Log("[Test] BigFileGmail() started");
 
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
@@ -104,7 +104,7 @@ namespace WebDriver.Tests
             Waiter.WaitElement();
             Assert.IsTrue(stepForMainPage.CheckPresenceOfAlertForFileTooBig());
 
-            logger.Log("[Test] SpamGmail() finished");
+            logger.Log("[Test] BigFileGmail() finished");
         }
 
         [Test]

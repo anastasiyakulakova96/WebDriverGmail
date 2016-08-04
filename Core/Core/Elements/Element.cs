@@ -31,6 +31,8 @@ namespace Core.Elements
             if (TryFindElement(out element) && isClickable(element))
             {
                 element.Click();
+                logger.Log("click: " + by);
+
                 return true;
             }
             return false;

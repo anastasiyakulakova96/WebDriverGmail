@@ -8,5 +8,10 @@ namespace Core.Elements
         {
 
         }
+
+        public void Click()
+        {
+            base.Click();
+        }
     }
 }
