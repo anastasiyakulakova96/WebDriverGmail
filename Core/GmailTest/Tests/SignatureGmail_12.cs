@@ -48,7 +48,7 @@ namespace GmailTest.Tests
         }
 
         [Test]
-        //  [Ignore("ignore")] //12
+      [Ignore("ignore")] //12
         public void CheckingSignature()
         {
             logger.Log("[Test] CheckingSignature() started");

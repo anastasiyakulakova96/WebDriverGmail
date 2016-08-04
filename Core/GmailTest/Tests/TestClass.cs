@@ -123,7 +123,7 @@ namespace WebDriver.Tests
 
 
         [Test]
-        // [Ignore("ignore")] //5
+      [Ignore("ignore")] //5
         public void SendEmailWithEmoji()
         {
             logger.Log("[Test] SendEmailWithEmoji() started");
@@ -142,7 +142,7 @@ namespace WebDriver.Tests
 
 
         [Test]
-        // [Ignore("ignore")] //6
+         [Ignore("ignore")] //6
         public void ChangeUserTheme()
         {
             logger.Log("[Test] ChangeUserTheme() started");
