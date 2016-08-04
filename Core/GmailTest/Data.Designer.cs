@@ -88,6 +88,24 @@ namespace GmailTest {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 1.rar.
+        /// </summary>
+        internal static string nameBigFile {
+            get {
+                return ResourceManager.GetString("nameBigFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to свадьба.xlsx.
+        /// </summary>
+        internal static string nameSmallFile {
+            get {
+                return ResourceManager.GetString("nameSmallFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to d:\1.rar.
         /// </summary>
         internal static string pathToBigFile {

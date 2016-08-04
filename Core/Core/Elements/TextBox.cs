@@ -8,7 +8,7 @@ namespace Core.Elements
     public class TextBox : Element
     {
         Logger logger;
-        public TextBox(By by, IWebDriver driver) : base(by, driver)
+        public TextBox(By by, IWebDriver driver, string name) : base(by, driver, name)
         {
 
         }

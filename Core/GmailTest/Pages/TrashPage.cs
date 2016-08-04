@@ -29,8 +29,8 @@ namespace GmailTest.Pages
             this.driver = driver;
             PageFactory.InitElements(this.driver, this);
 
-            tSerchBar = new TextBox(By.XPath("//input[@id='gbqfq']"), driver);
-            bSearch = new Button(By.XPath("//button[@id='gbqfb']"), driver);
+            tSerchBar = new TextBox(By.XPath("//input[@id='gbqfq']"), driver, "tSerchBar");
+            bSearch = new Button(By.XPath("//button[@id='gbqfb']"), driver, "bSearch");
         }
     }
 }

@@ -23,13 +23,14 @@ namespace WebDriver.Tests
         private string SETTINGPAGE = Data.settingPage;
         private string TOPIC_LETTER_WITH_ATTACH = Data.topicLetterWithAttech;
         private string TOPIC_LETTER_WITHOUT_ATTACH = Data.topicLetterWithoutAttech;
-        private string PATH_TO_SMALL_FILE = Data.pathToSmallFile;
-        private string PATH_TO_BIG_FILE = Data.pathToBigFile;
-        private string PATH_TO_SMALL_FILE2 = Data.pathToSmallFileForCheck;
+        //private string PATH_TO_SMALL_FILE = Data.pathToSmallFile;
+        //private string PATH_TO_BIG_FILE = Data.pathToBigFile;
+        //private string PATH_TO_SMALL_FILE2 = Data.pathToSmallFileForCheck;
         private string SIGNATURE = Data.signature;
         private string THEMES_FOR_VOCATION_RESPONDER = Data.themVocation;
         private string MESSAGE_FOR_VOCATION_RESPONDER = Data.messageVocation;
         private string TOPIC_EMOGI = Data.topicEmoji;
+        public string debugPath = TestContext.CurrentContext.TestDirectory;
 
         Logger logger;
         StepForLoginPage stepForLogin;
@@ -69,6 +70,7 @@ namespace WebDriver.Tests
         {
             logger.Log("[Test] SpamGmail() started");
 
+           
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL2, USERPASSWORD2);
             stepForMainPage.WriteALetter(USEREMAIL,TOPIC_LETTER_WITHOUT_ATTACH);
@@ -93,14 +95,15 @@ namespace WebDriver.Tests
         }
 
         [Test]
-      [Ignore("ignore")] //3
+      //[Ignore("ignore")] //3
         public void BigFileGmail()
         {
             logger.Log("[Test] BigFileGmail() started");
+            string pathToBigFile = debugPath + "\\" + Data.nameBigFile;
 
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
-            stepForMainPage.WriteALetterWithAttach2(USEREMAIL, PATH_TO_BIG_FILE,TOPIC_LETTER_WITH_ATTACH);
+            stepForMainPage.WriteALetterWithAttach2(USEREMAIL, pathToBigFile, TOPIC_LETTER_WITH_ATTACH);
             Waiter.WaitElement();
             Assert.IsTrue(stepForMainPage.CheckPresenceOfAlertForFileTooBig());
 
@@ -112,11 +115,12 @@ namespace WebDriver.Tests
         public void ThemesGmail()
         {
             logger.Log("[Test] ThemesGmail() started");
+            string pathToSmallFile = debugPath + "\\" + Data.nameSmallFile;
 
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
             stepForMainPage.OpenThemes();
-            stepForSettingsPage.ChangeThemeCustomImage(PATH_TO_SMALL_FILE);
+            stepForSettingsPage.ChangeThemeCustomImage(pathToSmallFile);
             Assert.IsTrue(stepForSettingsPage.CheckThemes());
 
             logger.Log("[Test] ThemesGmail() finished");

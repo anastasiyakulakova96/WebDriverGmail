@@ -22,12 +22,15 @@ namespace GmailTest.Tests
         private string SETTINGPAGE = Data.settingPage;
         private string TOPIC_LETTER_WITH_ATTACH = Data.topicLetterWithAttech;
         private string TOPIC_LETTER_WITHOUT_ATTACH = Data.topicLetterWithoutAttech;
-        private string PATH_TO_SMALL_FILE = Data.pathToSmallFile;
-        private string PATH_TO_BIG_FILE = Data.pathToBigFile;
-        private string PATH_TO_SMALL_FILE2 = Data.pathToSmallFileForCheck;
+        //private string PATH_TO_SMALL_FILE = Data.pathToSmallFile;
+        //private string PATH_TO_BIG_FILE = Data.pathToBigFile;
+        //private string PATH_TO_SMALL_FILE2 = Data.pathToSmallFileForCheck;
         private string SIGNATURE = Data.signature;
         private string THEMES_FOR_VOCATION_RESPONDER = Data.themVocation;
         private string MESSAGE_FOR_VOCATION_RESPONDER = Data.messageVocation;
+             public string debugPath = TestContext.CurrentContext.TestDirectory;
+
+
 
 
         Logger logger;
@@ -52,10 +55,13 @@ namespace GmailTest.Tests
         }
 
         [Test]
-      [Ignore("ignore")] //2
+    //  [Ignore("ignore")] //2
         public void ForwardGmailTest()
         {
             logger.Log("[Test] ForwardGmailTest() started");
+
+           
+            string pathToSmallFile = debugPath + "\\" + Data.nameSmallFile;
 
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL2, USERPASSWORD2);
@@ -78,7 +84,7 @@ namespace GmailTest.Tests
             Waiter.WaitElement();
             stepForMainPage.LogOutWithAddAccaunt();
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
-            stepForMainPage.WriteALetterWithAttach(USEREMAIL2, PATH_TO_SMALL_FILE,TOPIC_LETTER_WITH_ATTACH);
+            stepForMainPage.WriteALetterWithAttach(USEREMAIL2, pathToSmallFile, TOPIC_LETTER_WITH_ATTACH);
             Waiter.WaitElement();
             stepForMainPage.WriteALetter(USEREMAIL2,TOPIC_LETTER_WITHOUT_ATTACH);
             Waiter.WaitElement();

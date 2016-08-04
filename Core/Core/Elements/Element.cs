@@ -13,14 +13,16 @@ namespace Core.Elements
         protected TimeSpan timeout = TimeSpan.FromSeconds(10);
         protected By by;
         protected IWebDriver driver;
+        protected string name;
 
-        public Element(By by, IWebDriver driver)
+        public Element(By by, IWebDriver driver,string name)
         {
             this.by = by;
             this.driver = driver;
+            this.name = name;
         }
 
-        public Element(By by, IWebDriver driver, TimeSpan timeout) : this(by, driver)
+        public Element(By by, IWebDriver driver, string name ,TimeSpan timeout) : this(by, driver,name)
         {
             this.timeout = timeout;
         }
@@ -31,7 +33,7 @@ namespace Core.Elements
             if (TryFindElement(out element) && isClickable(element))
             {
                 element.Click();
-                logger.Log("click: " + by);
+                logger.Log("name: "+name+" click: " + by);
 
                 return true;
             }
@@ -42,19 +44,20 @@ namespace Core.Elements
         public bool TryFindElement(out IWebElement element)
         {
             element = null;
+            //  var a;
             try
             {
-                var wait = new WebDriverWait(driver, timeout);
-                element = wait.Until(drv => drv.FindElement(by));
+                WebDriverWait wait = new WebDriverWait(driver, timeout);
+               element= wait.Until(drv => drv.FindElement(by));
                 return true;
             }
-            catch(NoSuchElementException ex)
+            catch (NoSuchElementException ex)
             {
                 logger.Log("NoSuchElementException Element [" + GetType().Name + "] not found");
                 return false;
             }
 
-                   }
+        }
 
         public bool IsElementVisible(IWebElement element)
         {

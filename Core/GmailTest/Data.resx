@@ -126,6 +126,12 @@
   <data name="messageVocation" xml:space="preserve">
     <value>Vacation responder on</value>
   </data>
+  <data name="nameBigFile" xml:space="preserve">
+    <value>1.rar</value>
+  </data>
+  <data name="nameSmallFile" xml:space="preserve">
+    <value>свадьба.xlsx</value>
+  </data>
   <data name="pathToBigFile" xml:space="preserve">
     <value>d:\1.rar</value>
   </data>

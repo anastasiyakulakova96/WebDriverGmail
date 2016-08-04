@@ -26,12 +26,12 @@ namespace WebDriver
             this.driver = driver;
             PageFactory.InitElements(this.driver, this);
 
-            bNext = new Button(By.Id("next"), driver);
-            bEnter = new Button(By.Id("signIn"), driver);
-            bFirstUser = new Button(By.XPath("//*[@id='choose-account-0']"), driver);
-            bSecondUser = new Button(By.XPath("//*[@id='choose-account-1']"), driver);
-            tInputEmailField = new TextBox(By.Id("Email"), driver);
-            tinputPasswordField = new TextBox(By.Id("Passwd"), driver);
+            bNext = new Button(By.Id("next"), driver, "bNext");
+            bEnter = new Button(By.Id("signIn"), driver, "bEnter");
+            bFirstUser = new Button(By.XPath("//*[@id='choose-account-0']"), driver, "bFirstUser");
+            bSecondUser = new Button(By.XPath("//*[@id='choose-account-1']"), driver, "bSecondUser");
+            tInputEmailField = new TextBox(By.Id("Email"), driver, "tInputEmailField");
+            tinputPasswordField = new TextBox(By.Id("Passwd"), driver, "tinputPasswordField");
         }
     }
 }

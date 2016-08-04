@@ -37,14 +37,14 @@ namespace WebDriverLibrary.Pages
             this.driver = driver;
             PageFactory.InitElements(this.driver, this);
 
-            bSearchSpamFolder = new Button(By.XPath("//button[@class='gbqfb']"), driver);
-            bMark = new Button(By.XPath("//*[@id=':5']/div[2]/div[1]/div[1]/div/div/div[3]/div"), driver);
-            bSenderOfSpam1 = new Button(By.XPath("//span[text()='Настя Лежнюк']"), driver);
-            tInputField = new TextBox(By.XPath("//input[@id = 'gbqfq']"), driver);
-            bNotASpam = new Button((By.XPath("//div[contains(text(),'Не спам')]")), driver);
-            cFirstCheckBox = new CheckBox(By.XPath("//div[@dir='ltr']"), driver);
-            bFirstMessage = new Button((By.XPath("//span[contains(text(),'Удалить все письма со спамом')]")), driver);
-            bOK = new Button((By.XPath("//button[contains(text(),'ОК')]")), driver);
+            bSearchSpamFolder = new Button(By.XPath("//button[@class='gbqfb']"), driver, "bSearchSpamFolder");
+            bMark = new Button(By.XPath("//*[@id=':5']/div[2]/div[1]/div[1]/div/div/div[3]/div"), driver, "bMark");
+            bSenderOfSpam1 = new Button(By.XPath("//span[text()='Настя Лежнюк']"), driver, "bSenderOfSpam1");
+            tInputField = new TextBox(By.XPath("//input[@id = 'gbqfq']"), driver, "tInputField");
+            bNotASpam = new Button((By.XPath("//div[contains(text(),'Не спам')]")), driver, "bNotASpam");
+            cFirstCheckBox = new CheckBox(By.XPath("//div[@dir='ltr']"), driver, "cFirstCheckBox");
+            bFirstMessage = new Button((By.XPath("//span[contains(text(),'Удалить все письма со спамом')]")), driver, "bFirstMessage");
+            bOK = new Button((By.XPath("//button[contains(text(),'ОК')]")), driver, "bOK");
         }
 
         public string FindSpamSender()

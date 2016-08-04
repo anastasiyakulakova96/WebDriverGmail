@@ -10,7 +10,7 @@ namespace Core.Elements
     public class CheckBox : Element
     {
         IWebElement element = null;
-        public CheckBox(By by, IWebDriver driver) : base(by, driver)
+        public CheckBox(By by, IWebDriver driver,string name) : base(by, driver,name)
         {
 
         }

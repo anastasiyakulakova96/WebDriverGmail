@@ -5,7 +5,7 @@ namespace Core.Elements
 {
     public  class Label : Element
     {
-        public Label(By by, IWebDriver driver) : base(by, driver)
+        public Label(By by, IWebDriver driver, string name) : base(by, driver, name)
         {
 
         }

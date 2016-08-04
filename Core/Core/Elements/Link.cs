@@ -9,7 +9,7 @@ namespace Core.Elements
 {
     public class Link : Element
     {
-        public Link(By by, IWebDriver driver) : base(by, driver)
+        public Link(By by, IWebDriver driver, string name) : base(by, driver, name)
         {
 
         }
