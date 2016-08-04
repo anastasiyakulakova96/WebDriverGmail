@@ -52,7 +52,7 @@ namespace GmailTest.Tests
         }
 
         [Test]
-       //[Ignore("ignore")] //2
+      [Ignore("ignore")] //2
         public void ForwardGmailTest()
         {
             logger.Log("[Test] ForwardGmailTest() started");
@@ -96,26 +96,6 @@ namespace GmailTest.Tests
             Waiter.WaitElement();
             Assert.IsTrue(stepForMainPage.FindEmailInInbox(TOPIC_LETTER_WITHOUT_ATTACH));
 
-            Waiter.WaitElement();
-            stepForMainPage.LogOut();
-            Waiter.WaitElement();
-            stepForLogin.LoginGmail(USERPASSWORD2);
-            Waiter.WaitElement();
-            stepForMainPage.OpenSettings();
-            stepForSettingsPage.DeleteEmail();
-            Waiter.WaitElement();
-            stepForSettingsPage.OpenFilterPage();
-            Waiter.WaitElement();
-            stepForSettingsPage.DeleteFilter();
-
-            logger.Log("[Test] ForwardGmailTest() finished");
-        }
-
-        [TearDown]
-        public void CleanUp()
-        {
-            logger.Log("[TearDown] CleanUp()");
-
             //Waiter.WaitElement();
             //stepForMainPage.LogOut();
             //Waiter.WaitElement();
@@ -127,6 +107,26 @@ namespace GmailTest.Tests
             //stepForSettingsPage.OpenFilterPage();
             //Waiter.WaitElement();
             //stepForSettingsPage.DeleteFilter();
+
+            logger.Log("[Test] ForwardGmailTest() finished");
+        }
+
+        [TearDown]
+        public void CleanUp()
+        {
+            logger.Log("[TearDown] CleanUp()");
+
+            Waiter.WaitElement();
+            stepForMainPage.LogOut();
+            Waiter.WaitElement();
+            stepForLogin.LoginGmail(USERPASSWORD2);
+            Waiter.WaitElement();
+            stepForMainPage.OpenSettings();
+            stepForSettingsPage.DeleteEmail();
+            Waiter.WaitElement();
+            stepForSettingsPage.OpenFilterPage();
+            Waiter.WaitElement();
+            stepForSettingsPage.DeleteFilter();
             Driver.CloseBrowser();
 
             logger.Close();

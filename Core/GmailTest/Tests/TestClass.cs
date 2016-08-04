@@ -93,7 +93,7 @@ namespace WebDriver.Tests
         }
 
         [Test]
-     //  [Ignore("ignore")] //3
+      [Ignore("ignore")] //3
         public void BigFileGmail()
         {
             logger.Log("[Test] BigFileGmail() started");
@@ -108,7 +108,7 @@ namespace WebDriver.Tests
         }
 
         [Test]
-      // [Ignore("ignore")] //4
+    [Ignore("ignore")] //4
         public void ThemesGmail()
         {
             logger.Log("[Test] ThemesGmail() started");
