@@ -30,11 +30,11 @@ namespace GmailTest.Steps
 
         public bool FindEmailInTrash(String topicLine)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(trashPage.important)));
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
+            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")));
+            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(trashPage.Important)));
 
-            if (driver.FindElements(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")).Count != 0 && driver.FindElements(By.XPath(trashPage.important)).Count != 0)
+            if (driver.FindElements(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")).Count != 0 && driver.FindElements(By.XPath(trashPage.Important)).Count != 0)
             {
                 return true;
             }

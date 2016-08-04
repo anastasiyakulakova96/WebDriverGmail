@@ -91,7 +91,7 @@ namespace WebDriverLibrary.Steps
             Waiter.WaitElement();
             settingPage.bMyPictures.Click();
             Waiter.WaitElement();
-            driver.SwitchTo().Frame(driver.FindElement(By.XPath(settingPage.frame)));
+            driver.SwitchTo().Frame(driver.FindElement(By.XPath(settingPage.Frame)));
             settingPage.bFrameChangeThemeLocator.Click();
             settingPage.bChooseFileFromComputer.Click();
             IAutoItX3 autoIT = new AutoItX3();
@@ -114,9 +114,9 @@ namespace WebDriverLibrary.Steps
         public bool CheckThemes()
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(settingPage.themMessage)));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(settingPage.ThemMessage)));
 
-            if (driver.FindElements(By.XPath(settingPage.themMessage)).Count != 0)
+            if (driver.FindElements(By.XPath(settingPage.ThemMessage)).Count != 0)
             {
                 return true;
             }

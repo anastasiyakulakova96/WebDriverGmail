@@ -24,7 +24,13 @@ namespace WebDriverLibrary.Pages
         public Button bFirstMessage { get; set; }
         [FindsBy(How = How.XPath, Using = "//span[text()='Станислав Лежнюк']")]
         private IWebElement senderOfSpam;
-        public string firstCheckBox = "//div[@dir='ltr']";
+        public string FirstCheckBox
+        {
+            get
+            {
+                return "//div[@dir='ltr']";
+            }
+        }
 
         public SpamPage(IWebDriver driver)
         {

@@ -11,18 +11,5 @@ namespace Core
 
         }
 
-        //public string GetAttribute()
-        //{
-        //    IWebElement element = null;
-        //    if (TryFindElement(out element))
-        //    {
-        //       return element.GetAttribute();
-        //    }
-        //    else
-        //    {
-        //        throw new Exception();
-
-        //    }
-        //}
-    }
+            }
 }

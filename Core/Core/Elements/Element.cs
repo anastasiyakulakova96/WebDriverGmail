@@ -52,16 +52,7 @@ namespace Core.Elements
                 return false;
             }
 
-            //try
-            //{
-                //element = driver.FindElement(by);
-            //}
-            //catch (NoSuchElementException ex)
-            //{
-            //    return false;
-            //}
-            //return true;
-        }
+                   }
 
         public bool IsElementVisible(IWebElement element)
         {

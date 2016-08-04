@@ -37,7 +37,7 @@ namespace WebDriverLibrary.Steps
         {
            // SpamPage spamPage = new SpamPage(driver);
             Waiter.WaitElement();
-            IWebElement element = driver.FindElement(By.XPath(spamPage.firstCheckBox));
+            IWebElement element = driver.FindElement(By.XPath(spamPage.FirstCheckBox));
             spamPage.cFirstCheckBox.Click();
             spamPage.bNotASpam.Click();
         }

@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace Core.Elements
 {
-   public class CheckBox :  Element
+    public class CheckBox : Element
     {
+        IWebElement element = null;
         public CheckBox(By by, IWebDriver driver) : base(by, driver)
         {
 
         }
-
-
     }
 }

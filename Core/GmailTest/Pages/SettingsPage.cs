@@ -48,8 +48,20 @@ namespace WebDriverLibrary.Pages
         public TextBox tThemeResponder { get; set; }
         public TextBox tBodyResponder { get; set; }
         public RadioButton rbSelectResponderOff { get; set; }
-        public string frame = "//iframe[@class='KA-JQ']";
-        public string themMessage = "//div[contains(text(),'не поддерживается')]";
+        public string Frame
+        {
+            get
+            {
+                return "//iframe[@class='KA-JQ']";
+            }
+        }
+        public string ThemMessage
+        {
+            get
+            {
+                return "//div[contains(text(),'не поддерживается')]";
+            }
+        }
 
         public SettingsPage(IWebDriver driver)
         {

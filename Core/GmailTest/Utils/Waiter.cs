@@ -14,6 +14,10 @@ namespace WebDriverLibrary.Steps
         public static void WaitElement()
         {
             System.Threading.Thread.Sleep(10000);
-        }     
+        }
+        public static void WaitElement(int time)
+        {
+            System.Threading.Thread.Sleep(time);
+        }
     }
 }

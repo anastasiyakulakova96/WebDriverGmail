@@ -16,7 +16,13 @@ namespace GmailTest.Pages
 
         public TextBox tSerchBar { get; set; }
         public Button bSearch { get; set; }
-        public string important = "//div[@aria-label='Отмечено как важное потому, что подходит под условия одного из ваших фильтров важности.']";
+        public string Important
+        {
+            get
+            {
+                return "//div[@aria-label='Отмечено как важное потому, что подходит под условия одного из ваших фильтров важности.']";
+            }
+        }
 
         public TrashPage(IWebDriver driver)
         {

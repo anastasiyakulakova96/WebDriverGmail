@@ -16,9 +16,8 @@ namespace GmailTest
         private static string pathToResource = "json/{ip}";
         private static string HttpMethod = "GET";
 
-        public static string Method()
+        public static string GetCityById()
         {
-            //  var ipAddress = "155.120.20.3";
             string ipAddress = Data.ipAddress;
 
             string pathToResourceModified = pathToResource.Replace("{ip}", ipAddress);
@@ -37,7 +36,6 @@ namespace GmailTest
             }
 
             IpData data = JsonConvert.DeserializeObject<IpData>(content);
-          //  Console.WriteLine(string.Format("{0} is in {1} city of {2}, timezone {3}", ipAddress, data.City, data.Country, data.TimeZone));
 
             return data.City;
         }

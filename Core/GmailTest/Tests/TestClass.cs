@@ -64,14 +64,14 @@ namespace WebDriver.Tests
         }
 
         [Test]
-         [Ignore("ignore")] //1
+      //   [Ignore("ignore")] //1
         public void SpamGmail()
         {
             logger.Log("[Test] SpamGmail() started");
 
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL2, USERPASSWORD2);
-            stepForMainPage.WriteALetter(USEREMAIL,TOPIC_LETTER_WITH_ATTACH);
+            stepForMainPage.WriteALetter(USEREMAIL,TOPIC_LETTER_WITHOUT_ATTACH);
             Waiter.WaitElement();
             stepForMainPage.LogOutWithAddOneMoreAccount();
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
@@ -79,7 +79,7 @@ namespace WebDriver.Tests
             Waiter.WaitElement();
             stepForMainPage.LogOut();
             stepForLogin.LoginGmail(USERPASSWORD2);
-            stepForMainPage.WriteALetter(USEREMAIL,TOPIC_LETTER_WITH_ATTACH);
+            stepForMainPage.WriteALetter(USEREMAIL,TOPIC_LETTER_WITHOUT_ATTACH);
             Waiter.WaitElement();
             stepForMainPage.LogOut();
             stepForLogin.LoginGmailAsSecondUser(USERPASSWORD);
@@ -93,14 +93,14 @@ namespace WebDriver.Tests
         }
 
         [Test]
-       [Ignore("ignore")] //3
+     //  [Ignore("ignore")] //3
         public void BigFileGmail()
         {
             logger.Log("[Test] SpamGmail() started");
 
             stepForLogin.OpenStartPage();
             stepForLogin.LoginGmail(USEREMAIL3, USERPASSWORD3);
-            stepForMainPage.WriteALetterWithAttach2(USEREMAIL, PATH_TO_BIG_FILE);
+            stepForMainPage.WriteALetterWithAttach2(USEREMAIL, PATH_TO_BIG_FILE,TOPIC_LETTER_WITH_ATTACH);
             Waiter.WaitElement();
             Assert.IsTrue(stepForMainPage.CheckPresenceOfAlertForFileTooBig());
 
@@ -108,7 +108,7 @@ namespace WebDriver.Tests
         }
 
         [Test]
-       [Ignore("ignore")] //4
+      // [Ignore("ignore")] //4
         public void ThemesGmail()
         {
             logger.Log("[Test] ThemesGmail() started");
@@ -124,7 +124,7 @@ namespace WebDriver.Tests
 
 
         [Test]
-      [Ignore("ignore")] //5
+   //   [Ignore("ignore")] //5
         public void SendEmailWithEmoji()
         {
             logger.Log("[Test] SendEmailWithEmoji() started");
@@ -143,7 +143,7 @@ namespace WebDriver.Tests
 
 
         [Test]
-         [Ignore("ignore")] //6
+     //    [Ignore("ignore")] //6
         public void ChangeUserTheme()
         {
             logger.Log("[Test] ChangeUserTheme() started");

@@ -27,52 +27,47 @@ namespace WebDriverLibrary.Steps
             mainPage = new MainPage(driver);
         }
 
-        public void WriteALetter(string addressee,string topic)
+        public void WriteALetter(string addressee, string topic)
         {
-            //MainPage mainPage = new MainPage(driver);
             mainPage.bWriteEMail.Click();
             mainPage.tRecipient.SetText(addressee);
-            mainPage.tTopic.SetText("hi");
-            string text = Services.Method();
+            mainPage.tTopic.SetText(topic);
+            string text = Services.GetCityById();
             mainPage.tLetter.SetText(text);
             mainPage.bSend.Click();
         }
 
         public void WriteALetter()
         {
-            //MainPage mainPage = new MainPage(driver);
             mainPage.bWriteEMail.Click();
         }
 
         public void CloseWindowWithMessage()
         {
-            // MainPage mainPage = new MainPage(driver);
             mainPage.bCloseWindowMessage.Click();
         }
 
-        public void WriteLetterWithEmoticonIcon(string addressee,string topic)
+        public void WriteLetterWithEmoticonIcon(string addressee, string topic)
         {
-            // MainPage mainPage = new MainPage(driver);
             mainPage.bWriteEMail.Click();
             mainPage.tRecipient.SetText(addressee);
             mainPage.tTopic.SetText(topic);
             mainPage.bEmojiButton.Click();
             mainPage.bSecondEmoji.Click();
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(mainPage.firstEmoji)));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(mainPage.FirstEmoji)));
             mainPage.bEmoji1.Click();
-            wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(mainPage.secondEmoji)));
+            wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(mainPage.SecondEmoji)));
             mainPage.bEmoji2.Click();
             Waiter.WaitElement();
             mainPage.bSend.Click();
         }
 
-        public void WriteALetterWithAttach(string addressee, string path)
+        public void WriteALetterWithAttach(string addressee, string path, string topic)
         {
-            // MainPage mainPage = new MainPage(driver);
             mainPage.bWriteEMail.Click();
             mainPage.tRecipient.SetText(addressee);
-            mainPage.tTopic.SetText("letter with attech");
+            mainPage.tTopic.SetText(topic);
             mainPage.bAttachFile.Click();
             IAutoItX3 autoIT = new AutoItX3();
             autoIT.WinActivate("File Upload");
@@ -82,12 +77,11 @@ namespace WebDriverLibrary.Steps
             Thread.Sleep(7000);
             mainPage.bSend.Click();
         }
-        public void WriteALetterWithAttach2(string addressee, string path)
+        public void WriteALetterWithAttach2(string addressee, string path, string topic)
         {
-            // MainPage mainPage = new MainPage(driver);
             mainPage.bWriteEMail.Click();
             mainPage.tRecipient.SetText(addressee);
-            mainPage.tTopic.SetText("letter with attech");
+            mainPage.tTopic.SetText(topic);
             mainPage.bAttachFile.Click();
             IAutoItX3 autoIT = new AutoItX3();
             autoIT.WinActivate("File Upload");
@@ -99,7 +93,6 @@ namespace WebDriverLibrary.Steps
 
         public void LogOutWithAddOneMoreAccount()
         {
-            // MainPage mainPage = new MainPage(driver);
             mainPage.bMyAccount.Click();
             mainPage.bExit.Click();
             mainPage.bOtherAccount.Click();
@@ -108,7 +101,6 @@ namespace WebDriverLibrary.Steps
 
         public void LogOutWithAddAccaunt()
         {
-            //  MainPage mainPage = new MainPage(driver);
             mainPage.bMyAccount.Click();
             mainPage.bExit.Click();
             mainPage.bAddAccount.Click();
@@ -116,24 +108,23 @@ namespace WebDriverLibrary.Steps
 
         public void LogOut()
         {
-            // MainPage mainPage = new MainPage(driver);
             mainPage.bMyAccount.Click();
             mainPage.bExit.Click();
         }
 
         public void MarkTheLetter()
         {
-            // MainPage mainPage = new MainPage(driver);
             mainPage.cFirstCheckBox.Click();
             mainPage.bMark.Click();
         }
 
         public bool CheckLetterInBox()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//b[contains(text(),'not a spam')]")));
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(mainPage.TextNotASpam)));
+            Waiter.WaitElement(10000);
 
-            if (driver.FindElements(By.XPath("//b[contains(text(),'not a spam')]")).Count() != 0)
+            if (driver.FindElements(By.XPath(mainPage.TextNotASpam)).Count() != 0)
             {
                 return true;
             }
@@ -145,30 +136,25 @@ namespace WebDriverLibrary.Steps
 
         public void OpenInBox()
         {
-            // MainPage mainPage = new MainPage(driver);
             mainPage.bInBox.Click();
         }
 
         public void OpenSettings()
         {
-            // MainPage mainPage = new MainPage(driver);
             driver.Navigate().GoToUrl(mainPage.URL + SETTINGPAGE);
         }
         public void OpenGeneralSettings()
         {
-            // MainPage mainPage = new MainPage(driver);
             driver.Navigate().GoToUrl(mainPage.URL);
         }
 
         public void OpenThemes()
         {
-            // MainPage mainPage = new MainPage(driver);
             driver.Navigate().GoToUrl(mainPage.URL + THEMES_PAGE);
         }
 
         public void OpenMessage()
         {
-            //  MainPage mainPage = new MainPage(driver);
             mainPage.bFirstMessage.Click();
             mainPage.lForward.Click();
             Driver.GetDriver().SwitchTo().Window(Driver.GetDriver().WindowHandles.Last());
@@ -178,19 +164,18 @@ namespace WebDriverLibrary.Steps
 
         public void OpenInbox()
         {
-            // MainPage mainPage = new MainPage(driver);
-            mainPage.tSerchBar.SetText("in:inbox");
+            mainPage.tSerchBar.SetText(mainPage.InInbox);
             mainPage.bSearch.Click();
         }
 
         public bool FindEmailInInbox(String topicLine)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@aria-label='Неважное']")));
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
+            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")));
+            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(mainPage.NotImpotant)));
 
             if (driver.FindElements(By.XPath("//span//b[contains(text(),'" + topicLine + "')]/..")).Count != 0
-                && driver.FindElements(By.XPath("//div[@aria-label='Неважное']")).Count != 0)
+                && driver.FindElements(By.XPath(mainPage.NotImpotant)).Count != 0)
             {
                 return true;
             }
@@ -202,9 +187,9 @@ namespace WebDriverLibrary.Steps
 
         public bool CheckPresenceOfAlertForFileTooBig()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@role='alertdialog']")));
-            if (driver.FindElements(By.XPath("//div[@role='alertdialog']")).Count != 0)
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
+            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(mainPage.BigFileAlert)));
+            if (driver.FindElements(By.XPath(mainPage.BigFileAlert)).Count != 0)
             {
                 return true;
             }
@@ -216,9 +201,10 @@ namespace WebDriverLibrary.Steps
 
         public bool CheckEmojiInEmailBody()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@role='alertdialog']")));
-            if (driver.FindElements(By.XPath("//div[@role='alertdialog']")).Count != 0)
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
+            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(mainPage.EmojiEmailBody)));
+            Waiter.WaitElement(10000);
+            if (driver.FindElements(By.XPath(mainPage.EmojiEmailBody)).Count != 0)
             {
                 return true;
             }
@@ -230,7 +216,6 @@ namespace WebDriverLibrary.Steps
 
         public bool CheckSignature(string signature)
         {
-            //MainPage mainPage = new MainPage(driver);
             if (mainPage.tbSignature.GetText().Equals(signature))
             {
                 return true;
@@ -243,26 +228,23 @@ namespace WebDriverLibrary.Steps
 
         public void StarredTopMessage()
         {
-            //  MainPage mainPage = new MainPage(driver);
             mainPage.bStarMessage.Click();
         }
 
         public void OpenStarPage()
         {
-            //MainPage mainPage = new MainPage(driver);
             mainPage.lStarTitle.Click();
         }
 
         public void RemoveStarMessage()
         {
-            // MainPage mainPage = new MainPage(driver);
             mainPage.bNotStar.Click();
         }
         public bool CheckStarMessage()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(text(),'Станислав Лежнюк')]")));
-            if (driver.FindElements(By.XPath("//span[contains(text(),'Станислав Лежнюк')]")).Count != 0)
+            // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            // wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(mainPage.StarMessage)));
+            if (driver.FindElements(By.XPath(mainPage.StarMessage)).Count != 0)
             {
                 return true;
             }
@@ -274,10 +256,11 @@ namespace WebDriverLibrary.Steps
 
         public bool CheckVocationResponder()
         {
-            //MainPage mainPage = new MainPage(driver);
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//b[contains(text(),'Vacation responder')]")));
-            if (driver.FindElements(By.XPath("//b[contains(text(),'Vacation responder')]")).Count() != 0)
+            //  WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
+            // wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//b[contains(text(),'Vacation responder')]")));
+            Waiter.WaitElement(50000);
+
+            if (driver.FindElements(By.XPath(mainPage.VocationResponder)).Count() != 0)
             {
                 return true;
             }

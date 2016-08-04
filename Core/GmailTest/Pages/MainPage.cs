@@ -53,8 +53,71 @@ namespace WebDriverLibrary.Pages
         public Button bStar { get; set; }
         public Label lStarTitle { get; set; }
         public Button bNotStar { get; set; }
-        public string firstEmoji = "//button[@string='1f600']";
-        public string secondEmoji = "//button[@string='1f601']";
+      
+        public string FirstEmoji
+        {
+            get
+            {
+                return "//button[@string='1f600']";
+            }
+        }
+        public string SecondEmoji
+        {
+            get
+            {
+                return "//button[@string='1f601']";
+            }
+        }
+        public string TextNotASpam
+        {
+            get
+            {
+                return "//b[contains(text(),'not a spam')]";
+            }
+        }
+        public string InInbox
+        {
+            get
+            {
+              return  "in:inbox";
+            }
+        }
+        public string NotImpotant
+        {
+            get
+            {
+                return "//div[@aria-label='Неважное']";
+            }
+        }
+        public string BigFileAlert
+        {
+            get
+            {
+                return "//div[@role='alertdialog']";
+            }
+        }
+        public string EmojiEmailBody
+        {
+            get
+            {
+                return "//b[contains(text(),'emoji')]";
+            }
+        }
+        public string StarMessage
+        {
+            get
+            {
+                return "//span[contains(text(),'Станислав Лежнюк')]";
+            }
+        }
+        public string VocationResponder
+        {
+            get
+            {
+                return "//b[contains(text(),'Vacation responder')]";
+            }
+        }
+
         public MainPage(IWebDriver driver)
         {
             this.driver = driver;

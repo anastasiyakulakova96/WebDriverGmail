@@ -52,7 +52,7 @@ namespace GmailTest.Tests
         }
 
         [Test]
-       [Ignore("ignore")] //2
+       //[Ignore("ignore")] //2
         public void ForwardGmailTest()
         {
             logger.Log("[Test] ForwardGmailTest() started");
@@ -78,9 +78,9 @@ namespace GmailTest.Tests
             Waiter.WaitElement();
             stepForMainPage.LogOutWithAddAccaunt();
             stepForLogin.LoginGmail(USEREMAIL, USERPASSWORD);
-            stepForMainPage.WriteALetterWithAttach(USEREMAIL2, PATH_TO_SMALL_FILE);
+            stepForMainPage.WriteALetterWithAttach(USEREMAIL2, PATH_TO_SMALL_FILE,TOPIC_LETTER_WITH_ATTACH);
             Waiter.WaitElement();
-            stepForMainPage.WriteALetter(USEREMAIL2,TOPIC_LETTER_WITH_ATTACH);
+            stepForMainPage.WriteALetter(USEREMAIL2,TOPIC_LETTER_WITHOUT_ATTACH);
             Waiter.WaitElement();
             stepForMainPage.LogOut();
             Waiter.WaitElement();
