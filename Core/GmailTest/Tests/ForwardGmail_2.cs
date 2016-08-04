@@ -52,7 +52,7 @@ namespace GmailTest.Tests
         }
 
         [Test]
-        //  [Ignore("ignore")] //2
+       [Ignore("ignore")] //2
         public void ForwardGmailTest()
         {
             logger.Log("[Test] ForwardGmailTest() started");
